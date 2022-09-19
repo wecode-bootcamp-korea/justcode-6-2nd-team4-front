@@ -1,0 +1,24 @@
+@mixin title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+@mixin to-do {
+  border: 1px solid lightgray;
+}
+
+.wrapper {
+  @include to-do;
+  width: 100%;
+  .container {
+    @include to-do;
+    display: flex;
+    padding-left: 60px;
+    width: 100%;
+    .box {
+      @include to-do;
+      @include title;
+      margin: 20px;
+    }
+  }
+}

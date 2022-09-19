@@ -1,0 +1,19 @@
+@mixin to-do {
+  border: 1px solid lightgray;
+}
+
+.container {
+  @include to-do;
+  display: flex;
+  .box {
+    @include to-do;
+    margin: 15px;
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    div {
+      text-align: center;
+    }
+  }
+}
