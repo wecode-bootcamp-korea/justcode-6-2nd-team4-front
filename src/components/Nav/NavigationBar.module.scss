@@ -8,15 +8,17 @@
 }
 
 .wrapper {
-  @include to-do;
   width: 100%;
+
   .container {
     @include to-do;
     display: flex;
     padding-left: 60px;
     width: 100%;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
     .box {
-      @include to-do;
       @include title;
       margin: 20px;
     }
