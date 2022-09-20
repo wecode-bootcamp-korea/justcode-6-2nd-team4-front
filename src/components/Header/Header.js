@@ -1,15 +1,16 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import styles from "./Header.module.scss";
-import MyInfo from "./MyInfo/MyInfo";
+import styles from './Header.module.scss';
+import MyInfo from './MyInfo/MyInfo';
+import Navigation from '../../pages/Main/Nav/NavigationBar';
 
 function Header() {
   const [loggedIn, setLoggedIn] = useState(true);
 
   const navigate = useNavigate;
   const goMain = () => {
-    navigate("/");
+    navigate('/');
   };
 
   return (
@@ -35,6 +36,9 @@ function Header() {
               onClick={goMain}
             />
           </div>
+          {/* <div>
+            <Navigation />
+          </div> */}
         </div>
       </section>
     </div>
