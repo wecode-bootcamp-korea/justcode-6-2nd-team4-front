@@ -7,4 +7,47 @@
  */
 
 .container {
+  .header_border {
+    width: 100%;
+    padding: 30px;
+
+    .header_wrapper {
+      // border: 1px solid black;
+      width: 100%;
+      max-width: 1340px;
+      min-width: 768px;
+      position: relative;
+      .user_info_nav {
+        position: absolute;
+        right: 0px;
+        span {
+          margin-left: 10px;
+          border-right: 1px solid gray;
+          padding-right: 10px;
+        }
+        span:last-child {
+          border: none;
+        }
+      }
+      .header_logo_wrapper {
+        display: flex;
+        justify-content: center;
+        .header_logo {
+          width: 110px;
+          height: 110px;
+        }
+      }
+
+      .header_nav {
+        display: flex;
+        justify-content: flex-start;
+        padding: 10px;
+        font-size: 20px;
+        div:first-child {
+          margin-right: 10px;
+          color: #2fb1e7;
+        }
+      }
+    }
+  }
 }
