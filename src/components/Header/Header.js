@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import MyInfo from './MyInfo/MyInfo';
-import Navigation from '../../pages/Main/Nav/NavigationBar';
+import logo from '../../../src/assets/images/logo.png';
 
 function Header() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -31,7 +31,7 @@ function Header() {
           <div className={styles.header_logo_wrapper}>
             <img
               className={styles.header_logo}
-              src="https://d6j35gv9ux3qi.cloudfront.net/image/new-header-logo.svg"
+              src={logo}
               alt="header logo"
               onClick={goMain}
             />
