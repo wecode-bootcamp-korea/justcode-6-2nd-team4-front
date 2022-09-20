@@ -10,7 +10,6 @@
   z-index: 0;
   opacity: 0.3;
   .container {
-    @include to-do;
     display: flex;
     padding-left: 50px;
     opacity: 0.3;
@@ -30,7 +29,7 @@
 
 .activate {
   position: fixed;
-  top: 12%;
+  top: 10%;
   width: 100%;
   transition: all 1s;
   z-index: 0;
@@ -42,7 +41,6 @@
     opacity: 1;
     transition: 1s;
     .box {
-      @include to-do;
       margin: 15px;
       img {
         width: 60px;

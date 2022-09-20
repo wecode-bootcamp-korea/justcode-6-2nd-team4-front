@@ -1,11 +1,11 @@
 import styles from "./DropDownMenu.module.scss";
-import furniture from "../../../assets/images/furniture.png";
-import cutting from "../../../assets/images/cutting-board.png";
-import pet from "../../../assets/images/cat-toy.png";
-import fashion from "../../../assets/images/bag-shoe.png";
-import accessory from "../../../assets/images/wedding-rings.png";
-import objects from "../../../assets/images/plant.png";
-import teddy from "../../../assets/images/teddy-bear.png";
+import furniture from "../../../../assets/images/furniture.png";
+import cutting from "../../../../assets/images/cutting-board.png";
+import pet from "../../../../assets/images/cat-toy.png";
+import fashion from "../../../../assets/images/bag-shoe.png";
+import accessory from "../../../../assets/images/wedding-rings.png";
+import objects from "../../../../assets/images/plant.png";
+import teddy from "../../../../assets/images/teddy-bear.png";
 
 function DropDownMenu({ menuOpen }) {
   return (
