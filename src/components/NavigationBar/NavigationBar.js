@@ -1,7 +1,7 @@
-import DropDownMenu from "./DropDownMenu/DropDownMenu";
-import WorkMenu from "./DropDownMenu/WorkMenu";
-import styles from "./NavigationBar.module.scss";
-import React, { useState } from "react";
+import DropDownMenu from './DropDownMenu';
+import WorkMenu from './WorkMenu';
+import styles from './NavigationBar.module.scss';
+import React, { useState } from 'react';
 
 function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ function Navigation() {
   };
 
   let fontStyle = {
-    color: "rgb(3, 179, 238)",
+    color: 'rgb(3, 179, 238)',
   };
 
   return (

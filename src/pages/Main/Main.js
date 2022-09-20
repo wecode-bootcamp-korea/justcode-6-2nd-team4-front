@@ -1,5 +1,5 @@
-import styles from "./Main.module.scss";
-import Navigation from "./Nav/NavigationBar";
+import styles from './Main.module.scss';
+import Navigation from '../../components/NavigationBar/NavigationBar';
 
 function Main() {
   return (
