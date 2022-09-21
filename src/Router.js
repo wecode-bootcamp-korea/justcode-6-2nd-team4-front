@@ -1,21 +1,17 @@
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import HelmetProvider from './components/HelmetProvider/HelmetProvider';
-import Main from './pages/Main/Main';
-import Signup from './pages/Signup/Signup';
-import GlobalStyles from './styles/GlobalStyles';
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Main from "./pages/Main/Main";
 
-const { BrowserRouter, Routes, Route } = require('react-router-dom');
+const { BrowserRouter, Routes, Route } = require("react-router-dom");
+const { Reset } = require("styled-reset");
 
 function Router() {
   return (
     <BrowserRouter>
-      <HelmetProvider />
-      <GlobalStyles />
+      <Reset />
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </BrowserRouter>

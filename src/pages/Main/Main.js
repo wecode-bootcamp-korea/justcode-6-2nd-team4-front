@@ -1,12 +1,7 @@
-import styles from './Main.module.scss';
-import Navigation from './Nav/NavigationBar';
+import styles from "./Main.module.scss";
 
 function Main() {
-  return (
-    <div>
-      <Navigation />
-    </div>
-  );
+  return <div className={styles.container}>Main</div>;
 }
 
 export default Main;

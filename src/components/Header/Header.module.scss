@@ -7,39 +7,4 @@
  */
 
 .container {
-  .header_border {
-    position: relative;
-    padding: 30px;
-    margin: 57px;
-
-    .user_info_nav {
-      position: absolute;
-      right: 0px;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .header_wrapper {
-      .header_logo_wrapper {
-        display: flex;
-        justify-content: center;
-        position: relative;
-
-        .header_logo {
-          width: 110px;
-          height: 110px;
-        }
-      }
-
-      .header_nav {
-        display: flex;
-        padding: 10px;
-        font-size: 20px;
-        div:first-child {
-          margin-right: 10px;
-          color: #2fb1e7;
-        }
-      }
-    }
-  }
 }
