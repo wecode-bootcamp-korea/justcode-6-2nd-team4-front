@@ -1,16 +1,16 @@
-import styles from "./DropDownMenu.module.scss";
-import carpentry from "../../../../assets/images/carpentry.png";
-import leather from "../../../../assets/images/leather.png";
-import jewelry from "../../../../assets/images/jewelry.png";
-import pottery from "../../../../assets/images/pottery.png";
-import tools from "../../../../assets/images/tools.png";
+import styles from './DropDownMenu.module.scss';
+import carpentry from '../../assets/images/carpentry.png';
+import leather from '../../assets/images/leather.png';
+import jewelry from '../../assets/images/jewelry.png';
+import pottery from '../../assets/images/pottery.png';
+import tools from '../../assets/images/tools.png';
 
-function WorkMenu({ workMenuOpen }) {
+function WorkMenu({ handleMouseEnterWorkMenu, handleMouseLeaveWorkMenu }) {
   return (
     <div
-      className={
-        workMenuOpen ? `${styles.activate}` : `${styles.beforeactivate}`
-      }
+      className={styles.activate}
+      onMouseEnter={handleMouseEnterWorkMenu}
+      onMouseLeave={handleMouseLeaveWorkMenu}
     >
       <div className={styles.container}>
         <div className={styles.box}>
