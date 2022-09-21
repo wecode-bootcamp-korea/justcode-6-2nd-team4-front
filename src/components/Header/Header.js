@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Header.module.scss';
 import MyInfo from './MyInfo/MyInfo';
 import logo from '../../../src/assets/images/logo.png';
-import Navigation from '../../pages/Main/Nav/NavigationBar';
 
 function Header() {
   const [loggedIn, setLoggedIn] = useState(true);
