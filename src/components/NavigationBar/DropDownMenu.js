@@ -7,10 +7,12 @@ import accessory from '../../assets/images/wedding-rings.png';
 import objects from '../../assets/images/plant.png';
 import teddy from '../../assets/images/teddy-bear.png';
 
-function DropDownMenu({ menuOpen }) {
+function DropDownMenu({ handleMouseEnter, handleMouseLeave }) {
   return (
     <div
-      className={menuOpen ? `${styles.activate}` : `${styles.beforeactivate}`}
+      className={styles.activate}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className={styles.container}>
         <div className={styles.box}>

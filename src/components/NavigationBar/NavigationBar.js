@@ -48,8 +48,18 @@ function Navigation() {
           맞춤 제작소
         </div>
       </div>
-      <DropDownMenu menuOpen={menuOpen} />
-      <WorkMenu workMenuOpen={workMenuOpen} />
+      {menuOpen ? (
+        <DropDownMenu
+          handleMouseEnter={handleMouseEnter}
+          handleMouseLeave={handleMouseLeave}
+        />
+      ) : null}
+      {workMenuOpen ? (
+        <WorkMenu
+          handleMouseEnterWorkMenu={handleMouseEnterWorkMenu}
+          handleMouseLeaveWorkMenu={handleMouseLeaveWorkMenu}
+        />
+      ) : null}
     </div>
   );
 }

@@ -5,12 +5,12 @@ import jewelry from '../../assets/images/jewelry.png';
 import pottery from '../../assets/images/pottery.png';
 import tools from '../../assets/images/tools.png';
 
-function WorkMenu({ workMenuOpen }) {
+function WorkMenu({ handleMouseEnterWorkMenu, handleMouseLeaveWorkMenu }) {
   return (
     <div
-      className={
-        workMenuOpen ? `${styles.activate}` : `${styles.beforeactivate}`
-      }
+      className={styles.activate}
+      onMouseEnter={handleMouseEnterWorkMenu}
+      onMouseLeave={handleMouseLeaveWorkMenu}
     >
       <div className={styles.container}>
         <div className={styles.box}>
