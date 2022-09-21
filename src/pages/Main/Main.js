@@ -5,6 +5,7 @@ function Main() {
   return (
     <div>
       <Navigation />
+      <SimpleSlider />
     </div>
   );
 }
