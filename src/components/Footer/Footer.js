@@ -1,14 +1,12 @@
-import styles from "./Footer.module.scss";
+import styles from './Footer.module.scss';
+import logo from '../../../src/assets/images/logo.png';
 
 function Footer() {
   return (
     <div className={styles.container}>
       <section className={styles.footer_border}>
         <div className={styles.footer_img_wrapper}>
-          <img
-            alt="logo"
-            src="https://d6j35gv9ux3qi.cloudfront.net/image/new-header-logo.svg"
-          />
+          <img alt="logo" src={logo} />
         </div>
         <div className={styles.footer_description_wrapper}>
           <dl className={styles.footer_description_text}>

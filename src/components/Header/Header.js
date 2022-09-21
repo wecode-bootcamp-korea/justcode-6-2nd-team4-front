@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import MyInfo from './MyInfo/MyInfo';
+import logo from '../../../src/assets/images/logo.png';
 import Navigation from '../../pages/Main/Nav/NavigationBar';
 
 function Header() {
@@ -16,29 +17,25 @@ function Header() {
   return (
     <div className={styles.container}>
       <section className={styles.header_border}>
+        <nav className={styles.user_info_nav}>
+          {loggedIn ? (
+            <MyInfo />
+          ) : (
+            <span>
+              <span>로그인</span>
+              <span>회원가입</span>
+            </span>
+          )}
+        </nav>
         <div className={styles.header_wrapper}>
-          <nav className={styles.user_info_nav}>
-            {loggedIn ? (
-              <MyInfo />
-            ) : (
-              <span>
-                <span>로그인</span>
-                <span>회원가입</span>
-              </span>
-            )}
-          </nav>
-
           <div className={styles.header_logo_wrapper}>
             <img
               className={styles.header_logo}
-              src="https://d6j35gv9ux3qi.cloudfront.net/image/new-header-logo.svg"
+              src={logo}
               alt="header logo"
               onClick={goMain}
             />
           </div>
-          {/* <div>
-            <Navigation />
-          </div> */}
         </div>
       </section>
     </div>
