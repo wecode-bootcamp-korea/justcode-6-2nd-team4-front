@@ -1,6 +1,20 @@
+import React, { useState, useEffect, useRef } from 'react';
+
 import styles from './Signup.module.scss';
 
 function Signup() {
+  const pwdRef = useRef('');
+  const emailRef = useRef('');
+
+  const [pwd, setPwd] = useState('');
+  const [validPwd, setValidPwd] = useState(false);
+
+  const [email, setEmail] = useState('');
+  const [validEmail, setValidEmail] = useState(false);
+
+  const invalidRef = useRef();
+  const [invalid, setInvalid] = useState('');
+
   return (
     <div className={styles.container}>
       <div className={styles.signup_title}>
