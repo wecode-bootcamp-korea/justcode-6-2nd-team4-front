@@ -3,21 +3,24 @@ import styles from './ItemCard.module.scss';
 import star from '../../assets/images/star.png';
 import furniture from '../../assets/images/furniture.png';
 
-function ItemCard() {
+function ItemCard({ data }) {
   return (
     <div className={styles.card_wrapper}>
       <div className={styles.card_img_box}>
         <img src={furniture}></img>
       </div>
       <div className={styles.card_store_type}>
-        <div className={styles.card_store_name}>까사 바이 에이치</div>
-        <div className={styles.card_product_type}>소주잔</div>
+        <div className={styles.card_store_name}>{data.shop}</div>
+        <div className={styles.card_product_type}>{data.category}</div>
       </div>
-      <div className={styles.card_product_name}>나블리 소주잔세트</div>
-      <div className={styles.card_product_price}>40,000</div>
+      <div className={styles.card_product_name}>{data.product_name}</div>
+      <div className={styles.card_product_price}>{data.price}</div>
       <div className={styles.card_review}>
         <img src={star}></img>
-        <span>0.0(0)</span>
+        <span>
+          {data.average}
+          {data.review_count}
+        </span>
       </div>
     </div>
   );

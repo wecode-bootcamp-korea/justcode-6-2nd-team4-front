@@ -6,15 +6,13 @@ $title_fontsize: 18px;
 $price_fonstsize: 23px;
 
 .card_wrapper {
-  @include todo;
   width: 18.3vw;
   margin-left: 20px;
 
   .card_img_box {
-    @include todo;
     background-color: beige;
     width: 18.3vw;
-    height: 16vw;
+    height: 16.5vw;
     border-radius: 10px;
 
     img {
@@ -24,33 +22,30 @@ $price_fonstsize: 23px;
     }
   }
   .card_store_type {
-    @include todo;
     display: flex;
     justify-content: space-between;
     .card_store_name {
-      @include todo;
+      color: gray;
+      margin: 10px 0px 0px 0px;
     }
     .card_product_type {
-      @include todo;
+      color: rgb(3, 179, 238);
+      margin: 10px 0px 0px 0px;
     }
   }
   .card_product_name {
-    @include todo;
     font-size: $title_fontsize;
+    margin: 10px 0px 0px 0px;
   }
   .card_product_price {
-    @include todo;
     font-size: $price_fonstsize;
+    margin: 10px 0px 0px 0px;
   }
   .card_review {
-    @include todo;
+    margin: 10px 0px 0px 0px;
     img {
-      @include todo;
       width: 15px;
       height: 15px;
-    }
-    span {
-      @include todo;
     }
   }
 }

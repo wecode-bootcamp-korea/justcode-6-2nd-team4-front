@@ -1,0 +1,360 @@
+{
+  "main": {
+    "new": [
+      {
+        "product_id": 3,
+        "product_name": "자작합판거울",
+        "image": "http://localhost:10010/images/product3.jpg",
+        "sale_rate": null,
+        "price": "35,000",
+        "shop": "나무그늘아래서",
+        "category": "가구",
+        "average": "5.0",
+        "review_count": "1"
+      },
+      {
+        "product_id": 13,
+        "product_name": "홈카페인테리어액자 - 커피숍추천",
+        "image": "http://localhost:10010/images/product13.jpg",
+        "sale_rate": "42%",
+        "price": "29,000",
+        "shop": "빈티지나인",
+        "category": "가구",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 37,
+        "product_name": "케이크캔들 디저트캔들 생일선물 주문제작 기념일",
+        "image": "http://localhost:10010/images/product37.jpg",
+        "sale_rate": null,
+        "price": "22,000",
+        "shop": "안녕_공룡",
+        "category": "기타",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 11,
+        "product_name": "매거진랙",
+        "image": "http://localhost:10010/images/product11.jpg",
+        "sale_rate": null,
+        "price": "35,000",
+        "shop": "우디엔드",
+        "category": "가구",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 17,
+        "product_name": "블루리프 커피잔세트",
+        "image": "http://localhost:10010/images/product17.jpg",
+        "sale_rate": null,
+        "price": "33,000",
+        "shop": "혜인공방",
+        "category": "주방용품",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 2,
+        "product_name": "삼나무 서랍함 빈티지 수납함",
+        "image": "http://localhost:10010/images/product2.jpg",
+        "sale_rate": "6%",
+        "price": "72,000",
+        "shop": "나무상점",
+        "category": "가구",
+        "average": "4.5",
+        "review_count": "2"
+      },
+      {
+        "product_id": 39,
+        "product_name": "포레스트 오브 퍼퓸 친환경 프리미엄 대용량 소이캔들",
+        "image": "http://localhost:10010/images/product39.jpg",
+        "sale_rate": null,
+        "price": "9,900",
+        "shop": "포레스트 오브 퍼퓸",
+        "category": "기타",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 7,
+        "product_name": "다용도 빈티지 원목 미니수납함",
+        "image": "http://localhost:10010/images/product7.jpg",
+        "sale_rate": null,
+        "price": "9,900",
+        "shop": "나무상점",
+        "category": "가구",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 20,
+        "product_name": "청화넝쿨-죽그릇",
+        "image": "http://localhost:10010/images/product20.jpg",
+        "sale_rate": "18%",
+        "price": "18,000",
+        "shop": "태미공방",
+        "category": "주방용품",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 25,
+        "product_name": "[아르벨] 착용감이 좋은 발편한 양가죽 여성 로퍼3cm",
+        "image": "http://localhost:10010/images/product25.jpg",
+        "sale_rate": "32%",
+        "price": "155,000",
+        "shop": "아르벨",
+        "category": "패션잡화",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 26,
+        "product_name": "접이식안경 돋보기 케이스",
+        "image": "http://localhost:10010/images/product26.jpg",
+        "sale_rate": null,
+        "price": "54,000",
+        "shop": "공방자작",
+        "category": "패션잡화",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 4,
+        "product_name": "바이올린 우드스피커",
+        "image": "http://localhost:10010/images/product4.jpg",
+        "sale_rate": null,
+        "price": "170,000",
+        "shop": "로레인",
+        "category": "가구",
+        "average": "5.0",
+        "review_count": "1"
+      },
+      {
+        "product_id": 23,
+        "product_name": "곰돌이 젤리 오가닉 조끼",
+        "image": "http://localhost:10010/images/product23.jpg",
+        "sale_rate": null,
+        "price": "19,000",
+        "shop": "러블리몽",
+        "category": "반려용품",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 34,
+        "product_name": "내추럴한 고급스러움의 티매트세트",
+        "image": "http://localhost:10010/images/product34.jpg",
+        "sale_rate": null,
+        "price": "55,000",
+        "shop": "비단향꽃무",
+        "category": "소품",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 9,
+        "product_name": "아일랜드 파티션_상단턱형",
+        "image": "http://localhost:10010/images/product9.jpg",
+        "sale_rate": null,
+        "price": "199,000",
+        "shop": "조목조목공소",
+        "category": "가구",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 30,
+        "product_name": "오리지널 스트립 자개 화이트 실버링",
+        "image": "http://localhost:10010/images/product30.jpg",
+        "sale_rate": null,
+        "price": "150,000",
+        "shop": "LUXE HAND",
+        "category": "액세서리",
+        "average": null,
+        "review_count": null
+      }
+    ],
+    "popular": [
+      {
+        "product_id": 18,
+        "product_name": "청화넝쿨 - 주병세트",
+        "image": "http://localhost:10010/images/product18.jpg",
+        "sale_rate": "7%",
+        "price": "38,000",
+        "shop": "태미공방",
+        "category": "주방용품",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 33,
+        "product_name": "?커스텀 드로잉 결혼 커플 애견 선물 자수 폰케이스?",
+        "image": "http://localhost:10010/images/product33.jpg",
+        "sale_rate": null,
+        "price": "29,000",
+        "shop": "수놓다진",
+        "category": "소품",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 17,
+        "product_name": "블루리프 커피잔세트",
+        "image": "http://localhost:10010/images/product17.jpg",
+        "sale_rate": null,
+        "price": "33,000",
+        "shop": "혜인공방",
+        "category": "주방용품",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 39,
+        "product_name": "포레스트 오브 퍼퓸 친환경 프리미엄 대용량 소이캔들",
+        "image": "http://localhost:10010/images/product39.jpg",
+        "sale_rate": null,
+        "price": "9,900",
+        "shop": "포레스트 오브 퍼퓸",
+        "category": "기타",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 3,
+        "product_name": "자작합판거울",
+        "image": "http://localhost:10010/images/product3.jpg",
+        "sale_rate": null,
+        "price": "35,000",
+        "shop": "나무그늘아래서",
+        "category": "가구",
+        "average": "5.0",
+        "review_count": "1"
+      },
+      {
+        "product_id": 9,
+        "product_name": "아일랜드 파티션_상단턱형",
+        "image": "http://localhost:10010/images/product9.jpg",
+        "sale_rate": null,
+        "price": "199,000",
+        "shop": "조목조목공소",
+        "category": "가구",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 23,
+        "product_name": "곰돌이 젤리 오가닉 조끼",
+        "image": "http://localhost:10010/images/product23.jpg",
+        "sale_rate": null,
+        "price": "19,000",
+        "shop": "러블리몽",
+        "category": "반려용품",
+        "average": null,
+        "review_count": null
+      },
+      {
+        "product_id": 1,
+        "product_name": "빈티지 수납형 벤치",
+        "image": "http://localhost:10010/images/product1.jpg",
+        "sale_rate": null,
+        "price": "32,000",
+        "shop": "나무그늘아래서",
+        "category": "가구",
+        "average": "4.0",
+        "review_count": "2"
+      },
+      {
+        "product_id": 5,
+        "product_name": "라왕합판 4단 서랍장",
+        "image": "http://localhost:10010/images/product5.jpg",
+        "sale_rate": null,
+        "price": "480,000",
+        "shop": "나무그늘아래서",
+        "category": "가구",
+        "average": "3.5",
+        "review_count": "2"
+      },
+      {
+        "product_id": 2,
+        "product_name": "삼나무 서랍함 빈티지 수납함",
+        "image": "http://localhost:10010/images/product2.jpg",
+        "sale_rate": "6%",
+        "price": "72,000",
+        "shop": "나무상점",
+        "category": "가구",
+        "average": "4.5",
+        "review_count": "2"
+      },
+      {
+        "product_id": 2,
+        "product_name": "삼나무 서랍함 빈티지 수납함",
+        "image": "http://localhost:10010/images/product2.jpg",
+        "sale_rate": "6%",
+        "price": "72,000",
+        "shop": "나무상점",
+        "category": "가구",
+        "average": "4.5",
+        "review_count": "2"
+      },
+      {
+        "product_id": 2,
+        "product_name": "삼나무 서랍함 빈티지 수납함",
+        "image": "http://localhost:10010/images/product2.jpg",
+        "sale_rate": "6%",
+        "price": "72,000",
+        "shop": "나무상점",
+        "category": "가구",
+        "average": "4.5",
+        "review_count": "2"
+      },
+      {
+        "product_id": 2,
+        "product_name": "삼나무 서랍함 빈티지 수납함",
+        "image": "http://localhost:10010/images/product2.jpg",
+        "sale_rate": "6%",
+        "price": "72,000",
+        "shop": "나무상점",
+        "category": "가구",
+        "average": "4.5",
+        "review_count": "2"
+      },
+      {
+        "product_id": 2,
+        "product_name": "삼나무 서랍함 빈티지 수납함",
+        "image": "http://localhost:10010/images/product2.jpg",
+        "sale_rate": "6%",
+        "price": "72,000",
+        "shop": "나무상점",
+        "category": "가구",
+        "average": "4.5",
+        "review_count": "2"
+      },
+      {
+        "product_id": 2,
+        "product_name": "삼나무 서랍함 빈티지 수납함",
+        "image": "http://localhost:10010/images/product2.jpg",
+        "sale_rate": "6%",
+        "price": "72,000",
+        "shop": "나무상점",
+        "category": "가구",
+        "average": "4.5",
+        "review_count": "2"
+      },
+      {
+        "product_id": 2,
+        "product_name": "삼나무 서랍함 빈티지 수납함",
+        "image": "http://localhost:10010/images/product2.jpg",
+        "sale_rate": "6%",
+        "price": "72,000",
+        "shop": "나무상점",
+        "category": "가구",
+        "average": "4.5",
+        "review_count": "2"
+      }
+    ]
+  }
+}
