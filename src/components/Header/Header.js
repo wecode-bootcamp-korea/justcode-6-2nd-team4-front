@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ import logo from '../../../src/assets/images/logo.png';
 function Header() {
   const [loggedIn, setLoggedIn] = useState(true);
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const goMain = () => {
     navigate('/');
   };

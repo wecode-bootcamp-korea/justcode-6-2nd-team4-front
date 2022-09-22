@@ -1,20 +1,13 @@
-import { useState } from "react";
-import styles from "./DropDown.module.scss";
+import { useState } from 'react';
+import styles from './DropDown.module.scss';
 
 function DropDown({ title }) {
   const [dropDown, setDropDown] = useState(false);
-
-  // const reverseBoolean = () => {
-  //   setDropDown((current) => !current);
-  // };
 
   return (
     <div className={styles.container}>
       <div
         className={styles.drop_down_title}
-        // onClick={() => {
-        //   setDropDown((prevDropDown) => !prevDropDown);
-        // }}
         onMouseEnter={() => setDropDown(true)}
         onMouseLeave={() => {
           setDropDown(false);

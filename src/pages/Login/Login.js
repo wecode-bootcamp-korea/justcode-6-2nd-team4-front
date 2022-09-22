@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Login.module.scss';
 import logo from '../../../src/assets/images/logo.png';
+import Modal from '../../../src/components/LoginModal/Modal.js';
 
 function Login() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const modalHandler = e => {
+    e.preventDefault();
+  };
+
   return (
     <div className={styles.container}>
       <form>
@@ -22,11 +29,15 @@ function Login() {
             />
             <span> 카카오 계정으로 계속하기</span>
           </button>
-          <button>
+
+          <button onMouseDown={() => setIsOpen(true)} onClick={modalHandler}>
             <img alt="로고" src={logo} />
             <span>사조의 공방으로 계속하기</span>
           </button>
+
+          <Modal open={isOpen} onClose={() => setIsOpen(false)} />
         </section>
+
         <section className={styles.login_link_wrapper}>
           <span>모두의 공방이 처음이신가요?</span>
           <a href="/signup">회원가입</a>
