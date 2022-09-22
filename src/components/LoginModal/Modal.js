@@ -15,6 +15,10 @@ function LoginModal({ open, onClose }) {
   const [validPwd, setValidPwd] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
 
+  const modalHandler = e => {
+    e.preventDefault();
+  };
+
   useEffect(() => {
     setValidPwd(PWD_REGEX.test(pwd));
   }, [pwd]);
@@ -23,14 +27,33 @@ function LoginModal({ open, onClose }) {
     setValidEmail(EMAIL_REGEX.test(email));
   }, [email]);
 
+  const postInfoHandler = e => {
+    e.preventDefault();
+
+    fetch('URL', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: emailRef.current.value,
+        pwd: pwdRef.current.value,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
+  };
+
   return (
     <>
       {!open ? null : (
         <>
-          <div className={styles.overlay} onClick={onClose} />
+          <div className={styles.overlay} />
 
           <div className={styles.container}>
-            <div className={styles.close_btn} onClick={onClose}>
+            <div className={styles.close_btn} onMouseDown={onClose}>
               X
             </div>
             <div className={styles.modal_title}>
@@ -85,7 +108,7 @@ function LoginModal({ open, onClose }) {
                 </p>
               </div>
             </section>
-            <Button title="확인" />
+            <Button event={postInfoHandler} title="확인" />
           </div>
         </>
       )}

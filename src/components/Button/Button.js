@@ -3,7 +3,7 @@ import styles from './Button.module.scss';
 
 function Button(props) {
   const title = props.title;
-  const signupClick = props.event;
+  const clickEvent = props.event;
   const [onHover, setOnHover] = useState(false);
 
   const enterMouse = () => {
@@ -20,7 +20,7 @@ function Button(props) {
       className={
         onHover ? `${styles.signup_btn_enter}` : `${styles.signup_btn_leave}`
       }
-      onClick={signupClick}
+      onClick={clickEvent}
       onMouseEnter={enterMouse}
       onMouseLeave={leaveMouse}
     >
