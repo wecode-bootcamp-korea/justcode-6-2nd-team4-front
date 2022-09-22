@@ -7,7 +7,7 @@ import next from '../../assets/images/next.png';
 
 function MainItemList() {
   const [page, setPage] = useState(1);
-  const [page2, setPage2] = useState(2);
+  const [page2, setPage2] = useState(1);
 
   const [style, setStyle] = useState({
     transform: `translateX(0%)`,
@@ -21,7 +21,7 @@ function MainItemList() {
   const handleNext = () => {
     setPage(2);
     setStyle({
-      transform: `translateX(-75%)`,
+      transform: `translateX(-74.5%)`,
       transition: `all 0.4s ease-in-out`,
     });
   };
@@ -36,7 +36,7 @@ function MainItemList() {
   const handleNext2 = () => {
     setPage2(2);
     setStyle2({
-      transform: `translateX(-75%)`,
+      transform: `translateX(-74.5%)`,
       transition: `all 0.4s ease-in-out`,
     });
   };

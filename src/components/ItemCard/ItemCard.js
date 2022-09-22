@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './ItemCard.module.scss';
 import star from '../../assets/images/star.png';
+import furniture from '../../assets/images/furniture.png';
 
 function ItemCard() {
   return (
     <div className={styles.card_wrapper}>
-      <div className={styles.card_img_box}>사진</div>
+      <div className={styles.card_img_box}>
+        <img src={furniture}></img>
+      </div>
       <div className={styles.card_store_type}>
         <div className={styles.card_store_name}>까사 바이 에이치</div>
         <div className={styles.card_product_type}>소주잔</div>

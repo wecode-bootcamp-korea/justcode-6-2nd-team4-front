@@ -13,9 +13,15 @@ $price_fonstsize: 23px;
   .card_img_box {
     @include todo;
     background-color: beige;
-    width: 100%;
+    width: 18.3vw;
     height: 16vw;
     border-radius: 10px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
   .card_store_type {
     @include todo;
