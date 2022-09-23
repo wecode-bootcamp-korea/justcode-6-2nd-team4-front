@@ -43,7 +43,9 @@ function MainItemList() {
   };
 
   useEffect(() => {
-    fetch('/mocks/MainPage/new.json')
+    fetch('http://localhost:10010/', {
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(result => {
         setNewData(result.main);
@@ -64,7 +66,7 @@ function MainItemList() {
   const popularSecondRow = [];
 
   if (newData) {
-    for (let i = 8; i < 16; i++) {
+    for (let i = 8; i < 15; i++) {
       newSecondRow.push(newData.new[i]);
       popularSecondRow.push(newData.popular[i]);
     }
