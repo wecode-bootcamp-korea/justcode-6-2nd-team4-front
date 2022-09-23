@@ -6,7 +6,6 @@ import Main from './pages/Main/Main';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import GlobalStyles from './styles/GlobalStyles';
-import Kakao from './components/Kakao/Kakao';
 
 const { BrowserRouter, Routes, Route } = require('react-router-dom');
 
@@ -21,7 +20,6 @@ function Router() {
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/kakao" element={<Kakao />} />
       </Routes>
       <Footer />
     </BrowserRouter>

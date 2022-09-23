@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import styles from './Login.module.scss';
 import logo from '../../../src/assets/images/logo.png';
 import Modal from '../../../src/components/LoginModal/Modal.js';
@@ -9,6 +10,9 @@ function Login() {
   const modalHandler = e => {
     e.preventDefault();
   };
+
+  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id={24f427ea2b0c64071fd0d72438e95819}&redirect_uri{	
+    http://localhost:3000/auth/kakao`;
 
   return (
     <div className={styles.container}>
@@ -22,13 +26,13 @@ function Login() {
         </section>
 
         <section className={styles.login_button_wrapper}>
-          <button>
+          <a href={kakaoURL}>
             <img
               alt="카카오"
               src="https://cdn-icons-png.flaticon.com/512/3991/3991999.png"
             />
             <span> 카카오 계정으로 계속하기</span>
-          </button>
+          </a>
 
           <button onMouseDown={() => setIsOpen(true)} onClick={modalHandler}>
             <img alt="로고" src={logo} />

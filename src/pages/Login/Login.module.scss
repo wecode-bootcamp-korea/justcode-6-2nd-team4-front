@@ -31,7 +31,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    button {
+    a {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -40,6 +40,9 @@
       height: 60px;
       border: none;
       margin-bottom: 10px;
+      background-color: #fae744;
+      color: white;
+      text-decoration: inherit;
       cursor: pointer;
       img {
         width: 40px;
@@ -49,12 +52,25 @@
         margin-left: 8px;
       }
     }
-    button:first-child {
-      background-color: #ffeb3b;
-    }
-    button:nth-child(2) {
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      width: 420px;
+      height: 60px;
+      border: none;
+      margin-bottom: 10px;
       background-color: #31b1e7;
       color: white;
+      cursor: pointer;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      span {
+        margin-left: 8px;
+      }
     }
   }
 
