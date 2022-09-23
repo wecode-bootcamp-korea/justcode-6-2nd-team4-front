@@ -14,9 +14,8 @@ function Header() {
 
     if (tokenStatus) {
       tokenStatus === null ? setLoggedIn(false) : setLoggedIn(true);
-      console.log(setLoggedIn);
     }
-  }, []);
+  });
 
   const navigate = useNavigate();
   const goLogin = () => {
@@ -25,18 +24,21 @@ function Header() {
   const goMain = () => {
     navigate('/');
   };
+  const goSignup = () => {
+    navigate('/signup');
+  };
 
   return (
     <div className={styles.container}>
       <section className={styles.header_border}>
-        <nav className={styles.user_info_nav}>
+        <nav className={styles.user_info}>
           {loggedIn ? (
             <MyInfo />
           ) : (
-            <span>
-              <a href="/login">로그인</a>
-              <a href="/signup">회원가입</a>
-            </span>
+            <div className={styles.user_info_nav}>
+              <div onClick={goLogin}>로그인</div>
+              <div onClick={goSignup}>회원가입</div>
+            </div>
           )}
         </nav>
         <div className={styles.header_wrapper}>
