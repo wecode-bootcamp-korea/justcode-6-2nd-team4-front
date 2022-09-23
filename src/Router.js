@@ -4,6 +4,7 @@ import HelmetProvider from './components/HelmetProvider/HelmetProvider';
 import Navigation from './components/NavigationBar/NavigationBar';
 import Main from './pages/Main/Main';
 import Signup from './pages/Signup/Signup';
+import Login from './pages/Login/Login';
 import GlobalStyles from './styles/GlobalStyles';
 
 const { BrowserRouter, Routes, Route } = require('react-router-dom');
@@ -18,6 +19,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </BrowserRouter>
