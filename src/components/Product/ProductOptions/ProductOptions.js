@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from './ProductOptions.module.scss';
-import close from '../../../assets/svgs/close.svg';
 import ProductOptionsItem from './ProductOptionsItem';
+import ProductOptionsItemSelectedInfo from './ProductOptionsItemSelectedInfo';
+import ProductOptionsItemSelectedInfoContainer from './ProductOptionsItemSelectedInfoContainer';
 
 function ProductOptions(props) {
   const { options, productPrice } = props;
 
   const [totalOptions, setTotalOptions] = useState('');
-  const [totalPrice, setTotalPrice] = useState(Number(productPrice));
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    setTotalPrice(Number(productPrice));
+  }, [productPrice]);
+
   const selectItem = (title, price) => {
     if (totalOptions === '') setTotalOptions(title);
     else setTotalOptions(totalOptions.concat(' / ', title));
@@ -17,11 +22,12 @@ function ProductOptions(props) {
   const initItem = () => {
     setTotalOptions('');
     setTotalPrice(Number(productPrice));
+    setProductCount(1);
   };
 
   const [productCount, setProductCount] = useState(1);
-  const increaseProduct = isUp => {
-    if (isUp) setProductCount(productCount + 1);
+  const increaseProduct = isIncreased => {
+    if (isIncreased) setProductCount(productCount + 1);
     else setProductCount(productCount !== 1 ? productCount - 1 : 1);
   };
 
@@ -39,26 +45,17 @@ function ProductOptions(props) {
           );
         })}
       {totalOptions !== '' && (
-        <div className={styles.product_selected_container}>
+        <ProductOptionsItemSelectedInfoContainer>
           {/* 반복됨 */}
-          <div className={styles.product_selected}>
-            <div className={styles.product_selected_left}>
-              <span>{totalOptions}</span>
-              <div className={styles.product_selected_count_container}>
-                <button onClick={() => increaseProduct(false)}>-</button>
-                <span>{productCount}</span>
-                <button onClick={() => increaseProduct(true)}>+</button>
-              </div>
-            </div>
-            <div className={styles.product_selected_right}>
-              <img src={close} alt="none" onClick={initItem} />
-              <span>
-                {Number(totalPrice * productCount).toLocaleString()}원
-              </span>
-            </div>
-          </div>
+          <ProductOptionsItemSelectedInfo
+            totalOptions={totalOptions}
+            totalPrice={totalPrice}
+            productCount={productCount}
+            increaseProduct={increaseProduct}
+            initItem={initItem}
+          />
           {/*  */}
-        </div>
+        </ProductOptionsItemSelectedInfoContainer>
       )}
     </div>
   );

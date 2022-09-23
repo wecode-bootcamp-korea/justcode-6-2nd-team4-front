@@ -27,7 +27,7 @@ function ProductDetail() {
         JsonMapper.formatToSchema(productOptionsSchema, json.getOption)
       );
     });
-  }, [product, options]);
+  }, []);
 
   // 제품 리뷰 정보
 
@@ -71,12 +71,12 @@ function ProductDetail() {
           </ProductInfoContainer>
         </ProductDetailContainer>
         {/* 제품 상세 정보, 리뷰 링크이동 */}
-        <div>
+        {/* <div>
           <img src={product.contentImageUri} alt="none" />
           <div>
             <strong>{product.content}</strong>
           </div>
-        </div>
+        </div> */}
         {/* 제품 상세 정보 */}
         {/* 제품 리뷰 정보 */}
       </ProductContainer>

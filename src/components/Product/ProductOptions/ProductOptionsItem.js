@@ -9,12 +9,6 @@ function ProductOptionsItem(props) {
     setIsDropped(!isDropped);
   };
 
-  // const [arr, setArr] = useState([
-  //   true,
-  //   ...new Array(option.length - 1).fill(false),
-  // ]);
-  // console.log(arr);
-
   return (
     <div
       className={styles.product_options_item_container}
