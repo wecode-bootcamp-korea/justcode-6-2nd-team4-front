@@ -21,10 +21,6 @@ function LoginModal({ open, onClose }) {
     navigate('/');
   };
 
-  // const modalHandler = e => {
-  //   e.preventDefault();
-  // };
-
   useEffect(() => {
     setValidPwd(PWD_REGEX.test(pwd));
   }, [pwd]);
@@ -50,8 +46,12 @@ function LoginModal({ open, onClose }) {
       .then(data => {
         if (data.token) {
           localStorage.setItem('token', data.token);
+          localStorage.setItem('userName', data.name);
           goMain();
         }
+      })
+      .catch(err => {
+        console.error(err);
       });
   };
 

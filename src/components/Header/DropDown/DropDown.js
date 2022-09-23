@@ -13,20 +13,17 @@ function DropDown({ title }) {
 
   return (
     <div className={styles.container}>
-      <div
-        className={styles.drop_down_title}
-        // onMouseEnter={() => setDropDown(true)}
-        onClick={() => setDropDown(true)}
-        // onMouseLeave={() => {
-        //   setDropDown(false);
-        // }}
-      >
+      <div className={styles.drop_down_title} onClick={() => setDropDown(true)}>
         {title}
       </div>
 
       <div className={styles.dropdown_wrapper}>
         {dropDown ? (
-          <ul className={styles.drop_down_list}>
+          <ul
+            className={styles.drop_down_list}
+            onMouseEnter={() => setDropDown(true)}
+            onMouseLeave={() => setDropDown(false)}
+          >
             <li>마이페이지</li>
             <li>구매관리</li>
             <li>1:1 채팅</li>
