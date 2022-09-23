@@ -1,0 +1,55 @@
+/*
+ * position
+ * box model
+ * visual
+ * typography
+ * misc
+ */
+
+.product_options_item_container {
+  position: relative;
+  cursor: pointer;
+
+  .option_title {
+    display: block;
+    padding: 13px 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  .option_title_inactive_border_radius {
+    border-radius: 4px 4px 0 0;
+  }
+
+  .option_list {
+    position: absolute;
+    top: 42.5px;
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 208px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+    z-index: 5;
+
+    .option_item {
+      padding: 16px 0;
+      margin: 0 16px;
+      border-bottom: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .option_item_inactive_border_bottom {
+      border-bottom: none;
+    }
+
+    .option_item:hover {
+      font-weight: 500;
+    }
+  }
+}

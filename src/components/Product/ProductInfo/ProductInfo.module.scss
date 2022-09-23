@@ -1,0 +1,75 @@
+/*
+ * position
+ * box model
+ * visual
+ * typography
+ * misc
+ */
+
+.product_title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+
+  span {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30px;
+    color: #222;
+  }
+}
+
+.product_contents_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .product_contents {
+    .product_price {
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .product_ratings {
+      display: flex;
+      align-items: center;
+
+      .star_icon {
+        margin-right: 6px;
+      }
+
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .product_menu_container {
+    display: flex;
+
+    .menu_heart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 12px;
+
+      img {
+        cursor: pointer;
+      }
+
+      span {
+        font-size: 12px;
+        font-weight: 400;
+        color: #999;
+      }
+    }
+
+    .menu_share {
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+}

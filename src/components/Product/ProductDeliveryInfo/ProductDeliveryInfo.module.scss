@@ -1,0 +1,26 @@
+/*
+ * position
+ * box model
+ * visual
+ * typography
+ * misc
+ */
+
+.product_delivery_info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+  :nth-child(1) {
+    min-width: 110px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+  }
+
+  :nth-child(2) {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+  }
+}
