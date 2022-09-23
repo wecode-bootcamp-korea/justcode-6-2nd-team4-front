@@ -1,18 +1,28 @@
-/*
- * position
- * box model
- * visual
- * typography
- * misc
- */
-
 .container {
-  margin: 100px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  .signup_title {
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  width: 600px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 50px;
+  z-index: 1000;
+
+  .close_btn {
+    position: absolute;
+    left: 3%;
+    top: 5%;
+    font-size: 20px;
+    color: #31b1e7;
+    cursor: pointer;
+  }
+
+  .modal_title {
     width: 100%;
     border-bottom: 1px solid grey;
     padding-bottom: 30px;
@@ -29,28 +39,31 @@
     }
   }
 
-  .signup_input_border {
+  .modal_input_border {
+    display: flex;
     width: 100%;
-    .signup_input_wrapper {
-      display: flex;
-      margin-bottom: 40px;
-      justify-content: center;
-      position: relative;
+    flex-direction: column;
+    justify-content: center;
 
+    .modal_input_wrapper {
+      display: flex;
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 50px;
       div {
         display: flex;
         align-items: center;
-        margin-right: 60px;
+        margin-right: 10px;
         height: 46px;
         width: 35%;
         font-size: 20px;
       }
       input {
-        width: 100%;
+        width: 500px;
         height: 40px;
         font-size: 15px;
         padding-left: 10px;
-        margin-right: 25%;
+        margin-right: 10%;
       }
       p {
         display: block;
@@ -68,34 +81,19 @@
         border: none;
         color: #31b1e7;
         padding: 0.25rem;
-        bottom: -2rem;
+        bottom: -1.5rem;
         left: 23%;
       }
     }
   }
+}
 
-  .signup_btn_wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 1px solid gray;
-    margin-top: 20px;
-    a {
-      margin-top: 40px;
-    }
-    input {
-      margin-top: 30px;
-      margin-bottom: 20px;
-    }
-    // .signup_btn {
-    //   margin-top: 30px;
-    //   width: 420px;
-    //   height: 60px;
-    //   border: none;
-    //   color: white;
-    //   background-color: lightgray;
-    //   font-size: 20px;
-    // }
-  }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
 }

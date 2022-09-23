@@ -12,14 +12,16 @@
   }
   .drop_down_list {
     position: absolute;
+    margin-top: 10px;
     padding: 8px;
-    width: 50px;
+    width: 55px;
     height: 66px;
     border: 1px solid grey;
     li {
       font-size: 11px;
       color: black;
       margin-top: 5px;
+      cursor: pointer;
     }
   }
 }
