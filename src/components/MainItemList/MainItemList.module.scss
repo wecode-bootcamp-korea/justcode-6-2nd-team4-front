@@ -36,7 +36,9 @@ $title_font_size: 25px;
   }
   .card_container {
     overflow: hidden;
-    margin-top: 20px;
+    margin: 30px 0px 50px 0px;
+    padding-top: 10px;
+
     .card_box {
       display: flex;
     }
