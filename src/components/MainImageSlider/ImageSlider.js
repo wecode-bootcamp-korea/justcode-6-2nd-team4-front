@@ -1,16 +1,17 @@
 import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import firstBanner from '../../assets/images/banner-1.png';
-import secondBanner from '../../assets/images/banner-2.png';
-import thirdBanner from '../../assets/images/banner-3.png';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
 import './ImageSlider.scss';
+
+//Import images
+import firstBanner from '../../assets/images/banner-1.png';
+import secondBanner from '../../assets/images/banner-2.png';
+import thirdBanner from '../../assets/images/banner-3.png';
 
 // import required modules
 import { Pagination, Navigation } from 'swiper';
