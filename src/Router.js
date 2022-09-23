@@ -19,7 +19,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/category" element={<Category />} />
+        <Route path="/themeCategory/:id" element={<Category />} />
       </Routes>
       <Footer />
     </BrowserRouter>
