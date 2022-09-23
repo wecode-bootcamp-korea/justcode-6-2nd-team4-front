@@ -1,0 +1,51 @@
+@mixin todo {
+  border: 1px solid lightgray;
+}
+
+$title_fontsize: 18px;
+$price_fonstsize: 23px;
+
+.card_wrapper {
+  width: 18.3vw;
+  margin-left: 20px;
+
+  .card_img_box {
+    background-color: beige;
+    width: 18.3vw;
+    height: 16.5vw;
+    border-radius: 10px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .card_store_type {
+    display: flex;
+    justify-content: space-between;
+    .card_store_name {
+      color: gray;
+      margin: 10px 0px 0px 0px;
+    }
+    .card_product_type {
+      color: rgb(3, 179, 238);
+      margin: 10px 0px 0px 0px;
+    }
+  }
+  .card_product_name {
+    font-size: $title_fontsize;
+    margin: 10px 0px 0px 0px;
+  }
+  .card_product_price {
+    font-size: $price_fonstsize;
+    margin: 10px 0px 0px 0px;
+  }
+  .card_review {
+    margin: 10px 0px 0px 0px;
+    img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
