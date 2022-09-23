@@ -55,7 +55,7 @@ function Signup() {
   const postInfoHandler = e => {
     e.preventDefault();
 
-    fetch('URL', {
+    fetch('http://localhost:10010/users/signup', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -186,7 +186,11 @@ function Signup() {
           약관에 동의합니다
         </label>
 
-        <Button event={postInfoHandler} title="확인" />
+        <Button
+          event={postInfoHandler}
+          inputValue={!validPwd || !validEmail ? true : false}
+          title="확인"
+        />
       </div>
     </div>
   );

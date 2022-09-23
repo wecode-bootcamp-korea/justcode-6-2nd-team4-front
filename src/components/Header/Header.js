@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Header.module.scss';
@@ -7,9 +7,21 @@ import MyInfo from './MyInfo/MyInfo';
 import logo from '../../../src/assets/images/logo.png';
 
 function Header() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const tokenStatus = localStorage.getItem('token');
+
+    if (tokenStatus) {
+      tokenStatus === null ? setLoggedIn(false) : setLoggedIn(true);
+      console.log(setLoggedIn);
+    }
+  }, []);
 
   const navigate = useNavigate();
+  const goLogin = () => {
+    navigate('/login');
+  };
   const goMain = () => {
     navigate('/');
   };
@@ -22,8 +34,8 @@ function Header() {
             <MyInfo />
           ) : (
             <span>
-              <span>로그인</span>
-              <span>회원가입</span>
+              <a href="/login">로그인</a>
+              <a href="/signup">회원가입</a>
             </span>
           )}
         </nav>

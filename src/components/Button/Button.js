@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import styles from './Button.module.scss';
 
 function Button(props) {
-  const title = props.title;
+  const titleText = props.title;
   const clickEvent = props.event;
+  const inputValue = props.inputValue;
+  const goMain = props.navigateMain;
   const [onHover, setOnHover] = useState(false);
 
   const enterMouse = () => {
@@ -16,15 +18,16 @@ function Button(props) {
 
   return (
     <button
-      // className={styles.signup_btn}
       className={
         onHover ? `${styles.signup_btn_enter}` : `${styles.signup_btn_leave}`
       }
       onClick={clickEvent}
+      disabled={inputValue}
+      onMouseUp={goMain}
       onMouseEnter={enterMouse}
       onMouseLeave={leaveMouse}
     >
-      {title}
+      {titleText}
     </button>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Button from '../Button/Button';
 import styles from './Modal.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,24}$/;
@@ -15,9 +16,14 @@ function LoginModal({ open, onClose }) {
   const [validPwd, setValidPwd] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
 
-  const modalHandler = e => {
-    e.preventDefault();
+  const navigate = useNavigate();
+  const goMain = () => {
+    navigate('/');
   };
+
+  // const modalHandler = e => {
+  //   e.preventDefault();
+  // };
 
   useEffect(() => {
     setValidPwd(PWD_REGEX.test(pwd));
@@ -30,7 +36,7 @@ function LoginModal({ open, onClose }) {
   const postInfoHandler = e => {
     e.preventDefault();
 
-    fetch('URL', {
+    fetch('http://localhost:10010/users/login', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -42,7 +48,10 @@ function LoginModal({ open, onClose }) {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+          goMain();
+        }
       });
   };
 
@@ -108,7 +117,11 @@ function LoginModal({ open, onClose }) {
                 </p>
               </div>
             </section>
-            <Button event={postInfoHandler} title="확인" />
+            <Button
+              inputValue={!validPwd || !validEmail ? true : false}
+              event={postInfoHandler}
+              title="확인"
+            />
           </div>
         </>
       )}
