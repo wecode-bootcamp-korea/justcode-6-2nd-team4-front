@@ -8,7 +8,7 @@ import logo from '../../../src/assets/images/logo.png';
 function Header() {
   const [loggedIn, setLoggedIn] = useState(true);
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const goMain = () => {
     navigate('/');
   };

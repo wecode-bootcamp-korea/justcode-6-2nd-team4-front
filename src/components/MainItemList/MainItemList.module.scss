@@ -1,0 +1,44 @@
+@mixin todo {
+  border: 1px solid lightgray;
+}
+
+@mixin title_font_style {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+$title_font_size: 25px;
+
+.wrapper {
+  width: 80%;
+  margin: auto;
+  margin-top: 60px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    .title {
+      @include title_font_style;
+    }
+    .slider_controler {
+      display: flex;
+      align-items: center;
+      .page {
+        margin-right: 10px;
+      }
+      .arrow_box {
+        img {
+          @include todo;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  .card_container {
+    overflow: hidden;
+    margin-top: 20px;
+    .card_box {
+      display: flex;
+    }
+  }
+}
