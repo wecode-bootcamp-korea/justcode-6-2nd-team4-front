@@ -6,7 +6,7 @@ const KakaoRedirectHandler = () => {
     let params = new URL(document.location.toString()).searchParams;
     let code = params.get('code'); // 인가코드 받는 부분
     let grant_type = 'authorization_code';
-    let client_id = 'e7b4643c322b0a5f4b47dd3b5f7b9dec';
+    let client_id = '2421507dafe955845cb57aea8ac410a9';
 
     axios
       .post(
@@ -14,7 +14,7 @@ const KakaoRedirectHandler = () => {
         grant_type=${grant_type}
         &client_id=${client_id}
         &redirect_uri=	
-        'http://localhost:3000/oauth/callback/kakao'
+        'http://localhost:3000/callback/'
         &code=${code}`,
         {
           headers: {

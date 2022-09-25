@@ -67,7 +67,7 @@ function LoginModal({ open, onClose }) {
             </div>
             <div className={styles.modal_title}>
               <h1>로그인</h1>
-              <p>회원가입 페이지 입니다</p>
+              <p>사조의 공방 로그인 페이지 입니다</p>
             </div>
 
             <section className={styles.modal_input_border}>
