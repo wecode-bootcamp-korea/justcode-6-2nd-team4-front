@@ -22,30 +22,42 @@ function DropDownMenu({ handleMouseEnter, handleMouseLeave }) {
             <div>가구</div>
           </div>
         </Link>
-        <div className={styles.box}>
-          <img src={cutting} alt="주방용품 카테고리 이미지"></img>
-          <div>주방용품</div>
-        </div>
-        <div className={styles.box}>
-          <img src={pet} alt="반려용품 카테고리 이미지"></img>
-          <div>반려용품</div>
-        </div>
-        <div className={styles.box}>
-          <img src={fashion} alt="패션 잡화 카테고리 이미지"></img>
-          <div>패션 잡화</div>
-        </div>
-        <div className={styles.box}>
-          <img src={accessory} alt="액세서리 카테고리 이미지"></img>
-          <div>액세서리</div>
-        </div>
-        <div className={styles.box}>
-          <img src={objects} alt="소품 카테고리 이미지"></img>
-          <div>소품</div>
-        </div>
-        <div className={styles.box}>
-          <img src={teddy} alt="기타 카테고리 이미지"></img>
-          <div>기타</div>
-        </div>
+        <Link to="/themeCategory/2?offset=0">
+          <div className={styles.box}>
+            <img src={cutting} alt="주방용품 카테고리 이미지"></img>
+            <div>주방용품</div>
+          </div>
+        </Link>
+        <Link to="/themeCategory/3?offset=0">
+          <div className={styles.box}>
+            <img src={pet} alt="반려용품 카테고리 이미지"></img>
+            <div>반려용품</div>
+          </div>
+        </Link>
+        <Link to="/themeCategory/4?offset=0">
+          <div className={styles.box}>
+            <img src={fashion} alt="패션 잡화 카테고리 이미지"></img>
+            <div>패션 잡화</div>
+          </div>
+        </Link>
+        <Link to="/themeCategory/5?offset=0">
+          <div className={styles.box}>
+            <img src={accessory} alt="액세서리 카테고리 이미지"></img>
+            <div>액세서리</div>
+          </div>
+        </Link>
+        <Link to="/themeCategory/6?offset=0">
+          <div className={styles.box}>
+            <img src={objects} alt="소품 카테고리 이미지"></img>
+            <div>소품</div>
+          </div>
+        </Link>
+        <Link to="/themeCategory/6?offset=0">
+          <div className={styles.box}>
+            <img src={teddy} alt="기타 카테고리 이미지"></img>
+            <div>기타</div>
+          </div>
+        </Link>
       </div>
     </div>
   );

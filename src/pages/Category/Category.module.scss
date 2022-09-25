@@ -8,32 +8,28 @@
 }
 
 .category_wrapper {
-  @include todo;
   width: 80%;
   margin: auto;
-  margin-top: 70px;
+  margin-top: 50px;
   .title {
-    @include todo;
     @include title_font_style;
   }
   .total_filter {
-    @include todo;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
     .total {
-      @include todo;
+      padding-top: 5px;
+      color: gray;
     }
     .filter {
-      @include todo;
       display: flex;
       .recommends {
-        @include todo;
-        padding-right: 15px;
-      }
-      .sales_rate {
-        @include todo;
-        padding-left: 15px;
+        padding: 6px 15px 6px;
+        margin-left: 10px;
+        border: 0px;
+        border-radius: 5px;
+        background-color: rgb(238, 238, 238);
       }
     }
   }
