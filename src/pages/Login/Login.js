@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styles from './Login.module.scss';
 import logo from '../../../src/assets/images/logo.png';
 import Modal from '../../../src/components/LoginModal/Modal.js';
+import { KAKAO_AUTH_URL } from '../../components/Kakao/Kakao';
 
 function Login() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,9 +11,6 @@ function Login() {
   const modalHandler = e => {
     e.preventDefault();
   };
-
-  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id={24f427ea2b0c64071fd0d72438e95819}&redirect_uri{	
-    http://localhost:3000/auth/kakao`;
 
   return (
     <div className={styles.container}>
@@ -26,7 +24,7 @@ function Login() {
         </section>
 
         <section className={styles.login_button_wrapper}>
-          <a href={kakaoURL}>
+          <a href={KAKAO_AUTH_URL}>
             <img
               alt="카카오"
               src="https://cdn-icons-png.flaticon.com/512/3991/3991999.png"

@@ -1,17 +1,4 @@
-// import React from 'react';
+const CLIENT_ID = 'e7b4643c322b0a5f4b47dd3b5f7b9dec';
+const REDIRECT_URI = 'http://localhost:3000/oauth/callback/kakao';
 
-// function Kakao() {
-//   const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id={24f427ea2b0c64071fd0d72438e95819}&redirect_uri{
-//     http://localhost:3000/auth/kakao`;
-//   const handleKakao = () => {
-//     window.location.href = kakaoURL;
-//   };
-
-//   return (
-//     <div>
-//       <button onClick={handleKakao}>hhhhh</button>
-//     </div>
-//   );
-// }
-
-// export default Kakao;
+export const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
