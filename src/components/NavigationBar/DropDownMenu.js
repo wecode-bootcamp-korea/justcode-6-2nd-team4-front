@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './DropDownMenu.module.scss';
 import furniture from '../../assets/images/furniture.png';
 import cutting from '../../assets/images/cutting-board.png';
@@ -15,10 +16,12 @@ function DropDownMenu({ handleMouseEnter, handleMouseLeave }) {
       onMouseLeave={handleMouseLeave}
     >
       <div className={styles.container}>
-        <div className={styles.box}>
-          <img src={furniture} alt="가구 카테고리 이미지"></img>
-          <div>가구</div>
-        </div>
+        <Link to="/themeCategory/1?offset=0">
+          <div className={styles.box}>
+            <img src={furniture} alt="가구 카테고리 이미지"></img>
+            <div>가구</div>
+          </div>
+        </Link>
         <div className={styles.box}>
           <img src={cutting} alt="주방용품 카테고리 이미지"></img>
           <div>주방용품</div>
