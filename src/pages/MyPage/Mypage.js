@@ -1,21 +1,31 @@
-import React from 'react';
 import styles from './MyPage.module.scss';
+import MyPageinfo from '../../components/MyPageComp/Info/MyPageInfo';
+import MyPageOrder from '../../components/MyPageComp/Order/MyPageOrder';
+import Liked from '../../components/MyPageComp/Liked/Liked';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function MyPage() {
   const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
   const goMain = () => {
     navigate('/');
   };
+
   return (
     <div className={styles.mypage_border}>
       <section className={styles.mypage_header_container}>
         <div className={styles.mypage_header_wrapper}>
           <h1>마이페이지</h1>
           <div className={styles.mypage_header_nav}>
-            <span>장바구니</span>
-            <span>로그아웃</span>
-            <span>고객센터</span>
+            {/* <span>장바구니</span>
+            <span onClick={handleLogout} onMouseLeave={goMain}>
+              로그아웃
+            </span>
+            <span>고객센터</span> */}
           </div>
         </div>
 
@@ -50,11 +60,22 @@ function MyPage() {
         </div>
       </section>
 
-      {/* <section className={styles.mypage_main_container}>
-        <div>
+      <section className={styles.mypage_main_container}>
+        <div className={styles.mypage_main_order_li_wrapper}>
           <h1>주문내역 조회</h1>
+          <MyPageOrder />
         </div>
-      </section> */}
+      </section>
+
+      <section className={styles.mypage_liked_container}>
+        <h1>찜한 목록</h1>
+        <Liked />
+      </section>
+
+      <section className={styles.mypage_myinfo_container}>
+        <h1>나의정보</h1>
+        <MyPageinfo />
+      </section>
     </div>
   );
 }

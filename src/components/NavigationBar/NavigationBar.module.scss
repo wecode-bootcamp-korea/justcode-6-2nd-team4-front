@@ -12,13 +12,12 @@
 
   .container {
     display: flex;
-    padding-left: 60px;
     width: 100%;
     background-color: white;
 
     .box {
       @include title;
-      margin: 20px 20px 0px 0px;
+      margin: 20px 20px 0px 40px;
       padding-bottom: 20px;
     }
   }

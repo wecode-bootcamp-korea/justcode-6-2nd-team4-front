@@ -1,0 +1,30 @@
+@mixin custom_h {
+  width: 100%;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.mypage_main_order_li_title {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+  border-top: 3px solid black;
+  border-bottom: 1px solid black;
+
+  div {
+    margin: 0px 50px;
+    padding: 15px;
+  }
+}
+.mypage_main_order_li_content {
+  padding: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px;
+  font-size: 20px;
+  color: grey;
+}
