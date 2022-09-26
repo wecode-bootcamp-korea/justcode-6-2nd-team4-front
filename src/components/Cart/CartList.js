@@ -4,7 +4,12 @@ import styles from './CartList.module.scss';
 import x from '../../assets/images/x.png';
 import teddy from '../../assets/images/teddy-bear.png';
 
-function CartList({ cartData }) {
+function CartList({
+  cartData,
+  id,
+  increaseProductPriceAndAmount,
+  decreaseProductPriceAndAmount,
+}) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -31,9 +36,25 @@ function CartList({ cartData }) {
         <div className={styles.option}>{cartData.options}</div>
         <div className={styles.amount_price_box}>
           <div className={styles.amount_box}>
-            <div className={styles.amount_minus}>-</div>
+            <div
+              className={styles.amount_minus}
+              id={id}
+              onClick={e => {
+                decreaseProductPriceAndAmount(e);
+              }}
+            >
+              -
+            </div>
             <div className={styles.amount_status}>{cartData.quantity}</div>
-            <div className={styles.amount_plus}>+</div>
+            <div
+              className={styles.amount_plus}
+              id={id}
+              onClick={e => {
+                increaseProductPriceAndAmount(e);
+              }}
+            >
+              +
+            </div>
           </div>
           <div className={styles.price_container}>
             <div className={styles.price}>작품가격 {cartData.price}원</div>
