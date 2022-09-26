@@ -1,11 +1,13 @@
+import { useSelector } from 'react-redux';
+
 import styles from './ProductImage.module.scss';
 
-function ProductImage(props) {
-  const { productImageUri } = props;
+function ProductImage() {
+  const product = useSelector(state => state.productData.product);
 
   return (
     <div className={styles.product_image}>
-      <img src={productImageUri} alt={'none'} />
+      <img src={product.imageUri} alt={'none'} />
     </div>
   );
 }

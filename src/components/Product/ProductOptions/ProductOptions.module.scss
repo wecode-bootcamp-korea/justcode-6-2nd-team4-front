@@ -14,4 +14,57 @@
     margin-bottom: 10px;
     font-size: 14px;
   }
+
+  .product_total_price_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    &_left {
+      span {
+        font-size: 20px;
+        font-weight: 500;
+        color: #222;
+      }
+    }
+
+    &_right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      .product_total_price_info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+
+        :nth-child(1) {
+          margin-bottom: 3px;
+          padding: 0 10px;
+          border-right: 1px solid #ccc;
+          font-size: 14px;
+          font-weight: 400;
+          color: #999;
+        }
+
+        :nth-child(2) {
+          margin-bottom: 3px;
+          padding-left: 10px;
+          font-size: 20px;
+          font-weight: 500;
+          color: #31b1e7;
+        }
+      }
+
+      .product_delivery_price_info {
+        margin-top: 9px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #666;
+      }
+    }
+  }
 }

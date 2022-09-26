@@ -6,11 +6,11 @@
       "origin_price": "1500",
       "thumbnail_image": "https://dummyimage.com/600x600/f3ff4a/000000&text=",
       "is_liked": 0,
-      "like_count": "2",
+      "like_count": "10",
       "avg_rate": "3.5",
       "review_count": "2",
       "image_url": "https://dummyimage.com/600x600/f3ff4a/000000&text=",
-      "content": "\"<br>제품 상세 정보 입니다.<br>\"",
+      "content": "제품 상세 정보 입니다.",
       "seller_id": 1,
       "name": "공방",
       "profile_image": "https://dummyimage.com/600x600/f3ff4a/000000&text=",
@@ -21,38 +21,5 @@
       "category_id": 1
     }
   ],
-  "getOption": [
-    {
-      "id": 1,
-      "title": "옵션1",
-      "detail": [
-        {
-          "id": 1,
-          "price": 0,
-          "title": "기본구성 (잔2, 받침2)"
-        },
-        {
-          "id": 2,
-          "price": 0,
-          "title": "1인구성 (잔1, 받침1)"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "옵션2",
-      "detail": [
-        {
-          "id": 1,
-          "price": 0,
-          "title": "선택없음"
-        },
-        {
-          "id": 2,
-          "price": 0,
-          "title": "원해요(크래프트 상자)"
-        }
-      ]
-    }
-  ]
+  "getOption": []
 }

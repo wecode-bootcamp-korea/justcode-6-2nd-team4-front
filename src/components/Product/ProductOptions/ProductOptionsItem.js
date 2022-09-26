@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './ProductOptionsItem.module.scss';
 
 function ProductOptionsItem(props) {
-  const { option, selectItem } = props;
+  const { option, selectOption } = props;
 
   const [isDropped, setIsDropped] = useState(false);
   const activateDropDown = () => {
@@ -35,7 +35,7 @@ function ProductOptionsItem(props) {
                     ? styles.option_item
                     : `${styles.option_item} ${styles.option_item_inactive_border_bottom}`
                 }
-                onClick={() => selectItem(opt.title, opt.price)}
+                onClick={() => selectOption(opt.title, opt.price)}
               >
                 {opt.title} (+{Number(opt.price).toLocaleString()}원)
               </li>

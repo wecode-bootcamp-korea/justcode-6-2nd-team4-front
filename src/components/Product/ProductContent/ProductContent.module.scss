@@ -1,0 +1,24 @@
+/*
+ * position
+ * box model
+ * visual
+ * typography
+ * misc
+ */
+
+.product_content_container {
+  width: 100%;
+  margin-top: 45px;
+  box-sizing: border-box;
+  max-width: 1340;
+  min-width: 708px;
+  text-align: center;
+
+  img {
+    display: inline-block;
+  }
+
+  p {
+    margin-top: 50px;
+  }
+}

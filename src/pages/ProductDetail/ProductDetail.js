@@ -1,8 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { getProduct } from './Api';
 import { JsonMapper } from 'json-data-mapper';
 import { productSchema } from './schemas/productSchema';
 import { productOptionsSchema } from './schemas/productOptionsSchema';
+import { setProduct } from './redux/productSlice';
+import { setOptions } from './redux/optionsSlice';
+import { DELIVERY_TOPICS } from './constants/deliveryTopic';
+import useMoveScroll from './hooks/useMoveScroll';
 
 import styles from './ProductDetail.module.scss';
 import ProductContainer from '../../components/Product/ProductContainer';
@@ -14,71 +20,69 @@ import ProductInfo from '../../components/Product/ProductInfo/ProductInfo';
 import ProductInfoContainer from '../../components/Product/ProductInfo/ProductInfoContainer';
 import ProductDetailContainer from '../../components/Product/ProductDetailContainer';
 import ProductOptions from '../../components/Product/ProductOptions/ProductOptions';
+import ProductContent from '../../components/Product/ProductContent/ProductContent';
+import ProductPurchase from '../../components/Product/ProductPurchase/ProductPurchase';
 
 function ProductDetail() {
-  const [product, setProduct] = useState({});
-  const [options, setOptions] = useState([]);
+  const { productId } = useParams();
+  const dispatch = useDispatch();
 
   // 제품 상세 정보
   useEffect(() => {
-    getProduct().then(json => {
-      setProduct(JsonMapper.formatToSchema(productSchema, json.getProducts[0]));
-      setOptions(
-        JsonMapper.formatToSchema(productOptionsSchema, json.getOption)
+    getProduct(productId).then(json => {
+      dispatch(
+        setProduct(
+          JsonMapper.formatToSchema(productSchema, json.getProducts[0])
+        )
+      );
+      dispatch(
+        setOptions(
+          JsonMapper.formatToSchema(productOptionsSchema, json.getOption)
+        )
       );
     });
   }, []);
 
   // 제품 리뷰 정보
 
+  const tabs = {
+    0: useMoveScroll('상품 상세'),
+    1: useMoveScroll('상품 리뷰'),
+    length: 2,
+  };
+
   return (
     <div className={styles.container}>
       <ProductContainer>
         <ProductDetailContainer>
-          <ProductImage productImageUri={product.imageUri} />
+          <ProductImage />
           <ProductInfoContainer>
-            <SellerInfo
-              sellerImage={product.sellerImage}
-              sellerName={product.sellerName}
-            />
-            <ProductInfo
-              name={product.name}
-              price={product.price}
-              averageRate={product.averageRate}
-              reviewCount={product.reviewCount}
-              likeCount={product.likeCount}
-            />
+            <SellerInfo />
+            <ProductInfo />
             <ProductDeliveryInfoContainer>
-              <ProductDeliveryInfo
-                topic={'제작기간'}
-                deliveryInfo={product.deliveryPeriod}
-              />
-              <ProductDeliveryInfo
-                topic={'배송구분'}
-                deliveryInfo={product.deliveryType}
-              />
-              <ProductDeliveryInfo
-                topic={'배송비'}
-                deliveryInfo={Number(product.deliveryFee).toLocaleString()}
-              />
-              <ProductDeliveryInfo
-                topic={'배송 제외 지역'}
-                deliveryInfo={product.deliveryExcludedArea}
-              />
+              {DELIVERY_TOPICS.map(topic => {
+                return (
+                  <ProductDeliveryInfo key={topic.id} title={topic.title} />
+                );
+              })}
             </ProductDeliveryInfoContainer>
-            <ProductOptions options={options} productPrice={product.price} />
-            {/* 총 상품 금액, 장바구니, 바로구매 */}
+            <ProductOptions />
+            <ProductPurchase />
           </ProductInfoContainer>
         </ProductDetailContainer>
-        {/* 제품 상세 정보, 리뷰 링크이동 */}
-        {/* <div>
-          <img src={product.contentImageUri} alt="none" />
-          <div>
-            <strong>{product.content}</strong>
-          </div>
-        </div> */}
-        {/* 제품 상세 정보 */}
-        {/* 제품 리뷰 정보 */}
+        <ul className={`${styles.product_tab}`}>
+          {Array.from(tabs).map((tab, idx) => {
+            return (
+              <li key={idx} onClick={tab.onMoveElement}>
+                {tab.name}
+              </li>
+            );
+          })}
+        </ul>
+        <ProductContent refer={tabs[0].element} />
+        <div style={{ marginBottom: '1200px' }} ref={tabs[1].element}>
+          review
+        </div>
       </ProductContainer>
     </div>
   );

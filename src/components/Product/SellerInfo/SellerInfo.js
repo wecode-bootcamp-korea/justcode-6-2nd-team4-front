@@ -1,12 +1,18 @@
+import { useSelector } from 'react-redux';
+
 import styles from './SellerInfo.module.scss';
 
-function SellerInfo(props) {
-  const { sellerImage, sellerName } = props;
+function SellerInfo() {
+  const product = useSelector(state => state.productData.product);
 
   return (
     <div className={styles.seller_container}>
-      <img className={styles.seller_image} src={sellerImage} alt={'none'} />
-      <span className={styles.seller_name}>{sellerName}</span>
+      <img
+        className={styles.seller_image}
+        src={product.sellerImage}
+        alt={'none'}
+      />
+      <span className={styles.seller_name}>{product.sellerName}</span>
     </div>
   );
 }
