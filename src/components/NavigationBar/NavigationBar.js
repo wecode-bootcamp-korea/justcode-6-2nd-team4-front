@@ -28,7 +28,7 @@ function Navigation() {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div
-          className={styles.box}
+          className={styles.design_box}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onClick={() => {
