@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getProduct } from './Api';
+import { getProduct, getReviews } from './Api';
 import { JsonMapper } from 'json-data-mapper';
 import { productSchema } from './schemas/productSchema';
 import { productOptionsSchema } from './schemas/productOptionsSchema';
+import { productReviewsSchema } from './schemas/productReviewsSchema';
 import { setProduct } from './redux/productSlice';
 import { setOptions } from './redux/optionsSlice';
+import { setReviews } from './redux/reviewsSlice';
 import { DELIVERY_TOPICS } from './constants/deliveryTopic';
 import useMoveScroll from './hooks/useMoveScroll';
 
@@ -22,12 +24,13 @@ import ProductDetailContainer from '../../components/Product/ProductDetailContai
 import ProductOptions from '../../components/Product/ProductOptions/ProductOptions';
 import ProductContent from '../../components/Product/ProductContent/ProductContent';
 import ProductPurchase from '../../components/Product/ProductPurchase/ProductPurchase';
+import ProductReviews from '../../components/Product/ProductReviews/ProductReviews';
 
 function ProductDetail() {
   const { productId } = useParams();
   const dispatch = useDispatch();
 
-  // 제품 상세 정보
+  // 제품 상세 정보, 제품 리뷰 정보
   useEffect(() => {
     getProduct(productId).then(json => {
       dispatch(
@@ -41,9 +44,14 @@ function ProductDetail() {
         )
       );
     });
+    getReviews(productId).then(json => {
+      dispatch(
+        setReviews(
+          JsonMapper.formatToSchema(productReviewsSchema, json.getReview)
+        )
+      );
+    });
   }, []);
-
-  // 제품 리뷰 정보
 
   const tabs = {
     0: useMoveScroll('상품 상세'),
@@ -80,9 +88,7 @@ function ProductDetail() {
           })}
         </ul>
         <ProductContent refer={tabs[0].element} />
-        <div style={{ marginBottom: '1200px' }} ref={tabs[1].element}>
-          review
-        </div>
+        <ProductReviews refer={tabs[1].element} />
       </ProductContainer>
     </div>
   );
