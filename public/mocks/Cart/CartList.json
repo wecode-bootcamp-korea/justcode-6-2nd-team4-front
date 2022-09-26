@@ -4,27 +4,27 @@
       "name": "자작합판거울",
       "shop": "나무그늘아래서",
       "image": "http://localhost:10010/images/product3.jpg",
-      "price": "16,500",
+      "price": 16500,
       "period": "약 7일 ~ 10일 소요",
       "cart_id": 1,
       "options": null,
       "quantity": 1,
       "product_id": 3,
-      "delivery_fee": "2,500",
-      "product_price": "35,000"
+      "delivery_fee": 2500,
+      "product_price": 35000
     },
     {
       "name": "원목 귀여운 문패 개업 선물",
       "shop": "우디브로",
       "image": "http://localhost:10010/images/product6.jpg",
-      "price": "30,000",
+      "price": 30000,
       "period": "약 1일 ~ 5일 소요",
       "cart_id": 2,
       "options": "컬러:레드/재질:참나무",
       "quantity": 2,
       "product_id": 6,
-      "delivery_fee": "3,000",
-      "product_price": "23,000"
+      "delivery_fee": 3000,
+      "product_price": 23000
     },
     {
       "name": "빈티지 나인 - 원목수납장",
@@ -36,99 +36,99 @@
       "options": null,
       "quantity": 1,
       "product_id": 10,
-      "delivery_fee": "3,500",
-      "product_price": "159,000"
+      "delivery_fee": 3500,
+      "product_price": 159000
     },
     {
       "name": "댕댕이 산책가방",
       "shop": "늘솜",
       "image": "http://localhost:10010/images/product21.jpg",
-      "price": "1,650,000",
+      "price": 1650000,
       "period": "약 1일 ~ 3일 소요",
       "cart_id": 4,
       "options": "컬러:화이트",
       "quantity": 5,
       "product_id": 21,
       "delivery_fee": null,
-      "product_price": "17,000"
+      "product_price": 17000
     },
     {
       "name": "바이올린 우드스피커",
       "shop": "로레인",
       "image": "http://localhost:10010/images/product4.jpg",
-      "price": "15,000",
+      "price": 15000,
       "period": "약 7일 ~ 15일 소요",
       "cart_id": 5,
       "options": null,
       "quantity": 1,
       "product_id": 4,
-      "delivery_fee": "3,500",
-      "product_price": "170,000"
+      "delivery_fee": 3500,
+      "product_price": 170000
     },
     {
       "name": "홈카페인테리어액자 - 커피숍추천",
       "shop": "빈티지나인",
       "image": "http://localhost:10010/images/product13.jpg",
-      "price": "35,000",
+      "price": 35000,
       "period": "약 10일 ~ 14일 소요",
       "cart_id": 10,
       "options": "모양:오각형",
       "quantity": 1,
       "product_id": 13,
-      "delivery_fee": "2,000",
-      "product_price": "50,000"
+      "delivery_fee": 2000,
+      "product_price": 50000
     },
     {
       "name": "홈카페인테리어액자 - 커피숍추천",
       "shop": "빈티지나인",
       "image": "http://localhost:10010/images/product13.jpg",
-      "price": "25,000",
+      "price": 25000,
       "period": "약 10일 ~ 14일 소요",
       "cart_id": 15,
       "options": "모양:사각형",
       "quantity": 1,
       "product_id": 13,
       "delivery_fee": null,
-      "product_price": "50,000"
+      "product_price": 50000
     },
     {
       "name": "원하는 곳 어디든? 원목 스툴",
       "shop": "우디브로",
       "image": "http://localhost:10010/images/product14.jpg",
-      "price": "16,500",
+      "price": 16500,
       "period": "약 1일 ~ 5일 소요",
       "cart_id": 42,
       "options": "기본구성 (잔1, 받침1)",
       "quantity": 1,
       "product_id": 14,
-      "delivery_fee": "3,000",
-      "product_price": "60,000"
+      "delivery_fee": 3000,
+      "product_price": 60000
     },
     {
       "name": "원하는 곳 어디든? 원목 스툴",
       "shop": "우디브로",
       "image": "http://localhost:10010/images/product14.jpg",
-      "price": "16,500",
+      "price": 16500,
       "period": "약 1일 ~ 5일 소요",
       "cart_id": 44,
       "options": "기본구성 (잔3)",
       "quantity": 1,
       "product_id": 14,
-      "delivery_fee": "3,000",
-      "product_price": "60,000"
+      "delivery_fee": 3000,
+      "product_price": 60000
     },
     {
       "name": "원하는 곳 어디든? 원목 스툴",
       "shop": "우디브로",
       "image": "http://localhost:10010/images/product14.jpg",
-      "price": "16,500",
+      "price": 16500,
       "period": "약 1일 ~ 5일 소요",
       "cart_id": 45,
       "options": "기본구성 (잔4)",
       "quantity": 1,
       "product_id": 14,
-      "delivery_fee": "3,000",
-      "product_price": "60,000"
+      "delivery_fee": 3000,
+      "product_price": 60000
     }
   ]
 }
