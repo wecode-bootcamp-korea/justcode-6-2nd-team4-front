@@ -3,18 +3,35 @@ import MyPageinfo from '../../components/MyPageComp/Info/MyPageInfo';
 import MyPageOrder from '../../components/MyPageComp/Order/MyPageOrder';
 import Liked from '../../components/MyPageComp/Liked/Liked';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function MyPage() {
   const navigate = useNavigate();
-  const handleLogout = () => {
-    localStorage.clear();
-    window.location.reload();
-  };
+  const [result, setResult] = useState([]);
+
+  // const handleLogout = () => {
+  //   localStorage.clear();
+  //   window.location.reload();
+  // };
+
+  useEffect(() => {
+    fetch('/mocks/Mock.json', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(res => res.json())
+      .then(data => setResult([data.profile[0].name]))
+      // .then(data => console.log(data))
+      .catch(err => {
+        console.error(err);
+      });
+  }, []);
+
+  console.log(result);
   const goMain = () => {
     navigate('/');
   };
-
   return (
     <div className={styles.mypage_border}>
       <section className={styles.mypage_header_container}>
@@ -36,11 +53,11 @@ function MyPage() {
           />
           <div className={styles.mypage_header_content_user}>
             <div className={styles.header_conetnt_user}>
-              <h1>사용자</h1>
+              <h1>{result}</h1>
               <span>님</span>
             </div>
             <p>
-              <span>사용자</span>님이 원하는 핸드메이드의 모든것
+              <span>{result}</span>님이 원하는 핸드메이드의 모든것
             </p>
             <p>사조의 공방에서 담아가세요!</p>
           </div>

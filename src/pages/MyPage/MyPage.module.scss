@@ -1,6 +1,5 @@
 @mixin custom_h {
   width: 100%;
-  color: black;
   font-size: 30px;
   font-weight: bold;
   padding: 30px;
@@ -10,7 +9,6 @@ section:first-child {
   padding-bottom: 0px;
 }
 section {
-  border-bottom: 1px solid gray;
   padding-bottom: 50px;
 }
 .mypage_border {
@@ -28,18 +26,18 @@ section {
         color: white;
         margin-right: 45px;
       }
-      .mypage_header_nav {
-        span {
-          color: white;
-          margin-right: 5px;
-          padding-right: 5px;
-          border-right: 1.5px solid white;
-          font-size: 20px;
-        }
-        span:last-child {
-          border: none;
-        }
-      }
+      // .mypage_header_nav {
+      //   span {
+      //     color: white;
+      //     margin-right: 5px;
+      //     padding-right: 5px;
+      //     border-right: 1.5px solid white;
+      //     font-size: 20px;
+      //   }
+      //   span:last-child {
+      //     border: none;
+      //   }
+      // }
     }
 
     .mypage_header_content_wrapper {
@@ -83,11 +81,12 @@ section {
     .mypage_header_content_go_main {
       display: flex;
       width: 35%;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
       color: white;
       font-size: 35px;
       font-weight: 400;
+      cursor: pointer;
 
       .go_main_img_wrapper {
         margin-left: 8px;
@@ -120,7 +119,7 @@ section {
         display: flex;
         justify-content: space-evenly;
         font-size: 20px;
-        border-top: 3px solid black;
+        border-top: 2px solid grey;
         border-bottom: 1px solid black;
 
         div {
@@ -147,7 +146,7 @@ section {
 
     h1 {
       @include custom_h();
-      border-bottom: 3px solid black;
+      border-bottom: 2.5px solid grey;
       margin-bottom: 20px;
     }
   }
@@ -159,7 +158,7 @@ section {
 
     h1 {
       @include custom_h();
-      border-bottom: 3px solid black;
+      border-bottom: 2.5px solid grey;
       margin-bottom: 20px;
     }
   }

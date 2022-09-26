@@ -11,8 +11,14 @@
       display: flex;
       justify-content: flex-start;
       color: grey;
+      div:first-child {
+        color: #31b1e7;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
       div {
-        width: 40%;
+        width: 25%;
       }
     }
   }
