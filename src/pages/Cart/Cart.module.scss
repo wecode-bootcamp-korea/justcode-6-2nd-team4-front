@@ -1,2 +1,23 @@
-.cart_list_payment_wrapper {
+.cart_wrapper {
+  margin-top: 50px;
+  .cart_title {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 15px;
+    border-bottom: 3px solid gray;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .cart_list_payment_wrapper {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    .cart_list_wrapper {
+      width: 60%;
+      border: 1px solid rgb(231, 231, 231);
+      border-radius: 5px;
+    }
+  }
 }

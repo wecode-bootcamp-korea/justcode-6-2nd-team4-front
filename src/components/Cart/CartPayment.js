@@ -9,16 +9,17 @@ function CartPayment() {
           <div className={styles.total_title}>총 상품금액</div>
           <div className={styles.total_price}>0원</div>
         </div>
-        <div>
-          <div>총 배송비</div>
-          <div> +0원</div>
+        <div className={styles.delivery_fee_box}>
+          <div className={styles.delivery_fee}>총 배송비</div>
+          <div className={styles.total_delivery}> +0원</div>
         </div>
-        <div>
-          <div>결제금액</div>
-          <div>0원</div>
+        <div className={styles.total_payment_box}>
+          <div className={styles.payment_title}>결제금액</div>
+          <div className={styles.total_payment_amount}>0원</div>
         </div>
       </div>
-      <div>구매하기</div>
+
+      <div className={styles.buy_btn}>구매하기</div>
     </div>
   );
 }

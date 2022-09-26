@@ -14,10 +14,10 @@ function Cart() {
   console.log(cartData);
 
   return (
-    <div>
-      <div>장바구니</div>
+    <div className={styles.cart_wrapper}>
+      <div className={styles.cart_title}>장바구니</div>
       <div className={styles.cart_list_payment_wrapper}>
-        <div>
+        <div className={styles.cart_list_wrapper}>
           {cartData.map((cartData, i) => {
             return <CartList key={i} cartData={cartData} id={i} />;
           })}
