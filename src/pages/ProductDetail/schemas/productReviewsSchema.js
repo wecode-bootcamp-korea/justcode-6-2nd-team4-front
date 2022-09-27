@@ -9,16 +9,13 @@ export const productReviewsSchema = {
       sourceField: 'rate',
     },
     content: {
-      sourceField: 'content',
+      sourceField: 'review_content',
     },
     createdAt: {
-      sourceField: 'created_at',
-    },
-    userId: {
-      sourceField: 'user_id',
+      sourceField: 'date',
     },
     userName: {
-      sourceField: 'user_name',
+      sourceField: 'name',
     },
     userImage: {
       sourceField: 'user_image',

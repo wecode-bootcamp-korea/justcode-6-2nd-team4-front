@@ -20,6 +20,12 @@
     color: #ccc;
   }
 
+  .option_title_inactive {
+    background-color: #fafafa;
+    color: #999999;
+    cursor: not-allowed;
+  }
+
   .option_title_inactive_border_radius {
     border-radius: 4px 4px 0 0;
   }

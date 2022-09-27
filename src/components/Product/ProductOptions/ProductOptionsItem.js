@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './ProductOptionsItem.module.scss';
 
 function ProductOptionsItem(props) {
-  const { option, selectOption } = props;
+  const { optionsIdx, isOptionsSelected, option, selectOption } = props;
 
   const [isDropped, setIsDropped] = useState(false);
   const activateDropDown = () => {
@@ -12,18 +12,20 @@ function ProductOptionsItem(props) {
   return (
     <div
       className={styles.product_options_item_container}
-      onClick={activateDropDown}
+      onClick={!isOptionsSelected[optionsIdx] ? activateDropDown : null}
     >
       <span
         className={
           !isDropped
-            ? styles.option_title
+            ? !isOptionsSelected[optionsIdx]
+              ? styles.option_title
+              : `${styles.option_title} ${styles.option_title_inactive}`
             : `${styles.option_title} ${styles.option_title_inactive_border_radius}`
         }
       >
         {option.title}
       </span>
-      {isDropped && (
+      {isDropped && !isOptionsSelected[optionsIdx] && (
         <ul className={styles.option_list}>
           {option.detail.map((opt, idx) => {
             const isLastElement = option.detail.length - 1 !== idx;
@@ -35,7 +37,7 @@ function ProductOptionsItem(props) {
                     ? styles.option_item
                     : `${styles.option_item} ${styles.option_item_inactive_border_bottom}`
                 }
-                onClick={() => selectOption(opt.title, opt.price)}
+                onClick={() => selectOption(opt.title, opt.price, optionsIdx)}
               >
                 {opt.title} (+{Number(opt.price).toLocaleString()}원)
               </li>

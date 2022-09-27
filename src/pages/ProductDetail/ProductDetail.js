@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getProduct, getReviews } from './Api';
@@ -47,7 +47,7 @@ function ProductDetail() {
     getReviews(productId).then(json => {
       dispatch(
         setReviews(
-          JsonMapper.formatToSchema(productReviewsSchema, json.getReview)
+          JsonMapper.formatToSchema(productReviewsSchema, json.getReviews)
         )
       );
     });
@@ -57,6 +57,28 @@ function ProductDetail() {
     0: useMoveScroll('상품 상세'),
     1: useMoveScroll('상품 리뷰'),
     length: 2,
+  };
+
+  const [isTabFixed, setIsTabFixed] = useState(false);
+  const [tabTopPosition, setTabTopPosition] = useState(0);
+  const tabRef = useRef();
+
+  useEffect(() => {
+    if (tabTopPosition === 0) {
+      setTabTopPosition(tabRef.current.offsetTop);
+    }
+    window.addEventListener('scroll', handleScroll, { capture: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [tabTopPosition]);
+
+  const handleScroll = () => {
+    if (window.scrollY <= tabTopPosition) {
+      setIsTabFixed(false);
+    } else {
+      setIsTabFixed(true);
+    }
   };
 
   return (
@@ -78,7 +100,14 @@ function ProductDetail() {
             <ProductPurchase />
           </ProductInfoContainer>
         </ProductDetailContainer>
-        <ul className={`${styles.product_tab}`}>
+        <ul
+          className={
+            !isTabFixed
+              ? `${styles.product_tab}`
+              : `${styles.product_tab} ${styles.product_tab_fixed}`
+          }
+          ref={tabRef}
+        >
           {Array.from(tabs).map((tab, idx) => {
             return (
               <li key={idx} onClick={tab.onMoveElement}>
