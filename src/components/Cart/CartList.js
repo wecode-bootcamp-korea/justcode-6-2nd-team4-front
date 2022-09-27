@@ -1,15 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
 import styles from './CartList.module.scss';
 import x from '../../assets/images/x.png';
-import teddy from '../../assets/images/teddy-bear.png';
 
 function CartList({
   cartData,
   id,
   increaseProductPriceAndAmount,
   decreaseProductPriceAndAmount,
+  deleteCartList,
+  patchAmountChange,
+  deleteCartListData,
 }) {
+  const activeMinusBtn = () => {
+    if (cartData.quantity > 1) {
+      return true;
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -20,7 +27,16 @@ function CartList({
           <div className={styles.shop}>{cartData.shop}</div>
         </div>
         <div className={styles.delete}>
-          <img src={x} className={styles.delete_icon}></img>
+          <img
+            src={x}
+            alt="delete button"
+            className={styles.delete_icon}
+            id={id}
+            onClick={e => {
+              deleteCartList(e);
+              deleteCartListData(e);
+            }}
+          ></img>
         </div>
       </div>
       <div className={styles.img_name_box}>
@@ -41,7 +57,9 @@ function CartList({
               id={id}
               onClick={e => {
                 decreaseProductPriceAndAmount(e);
+                patchAmountChange(e);
               }}
+              disabled={!activeMinusBtn}
             >
               -
             </div>
@@ -51,6 +69,7 @@ function CartList({
               id={id}
               onClick={e => {
                 increaseProductPriceAndAmount(e);
+                patchAmountChange(e);
               }}
             >
               +
@@ -64,7 +83,7 @@ function CartList({
                 ? `배송비 ${cartData.delivery_fee}`
                 : '배송비무료'}
             </div>
-            <div className={styles.total_price}> 총 {cartData.price}원</div>
+            <div className={styles.total_price}> 총 {cartData.allPrice}원</div>
           </div>
         </div>
       </div>

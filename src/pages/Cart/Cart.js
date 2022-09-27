@@ -2,17 +2,21 @@ import React, { useEffect, useState } from 'react';
 import CartList from '../../components/Cart/CartList';
 import CartPayment from '../../components/Cart/CartPayment';
 import styles from './Cart.module.scss';
+import axios from 'axios';
 
 function Cart() {
   const [cartData, setCartData] = useState([]);
 
   //user 장바구니 데이터 불러오기
   useEffect(() => {
-    fetch('/mocks/Cart/CartList.json')
+    fetch('http://localhost:10010/cart/1', {
+      method: 'GET',
+    })
       .then(res => res.json())
-      .then(data => setCartData(data.cart));
+      .then(data => {
+        setCartData(data.cart);
+      });
   }, []);
-  console.log(cartData);
 
   //장바구니 수량 및 가격 변경
   const increaseProductPriceAndAmount = e => {
@@ -20,6 +24,8 @@ function Cart() {
     console.log(e.target.id);
     copy[e.target.id].quantity = copy[e.target.id].quantity + 1;
     copy[e.target.id].price =
+      copy[e.target.id].quantity * copy[e.target.id].product_price;
+    copy[e.target.id].allPrice =
       copy[e.target.id].quantity * copy[e.target.id].product_price +
       copy[e.target.id].delivery_fee;
     return setCartData(copy);
@@ -29,10 +35,61 @@ function Cart() {
     let copy = [...cartData];
     copy[e.target.id].quantity = copy[e.target.id].quantity - 1;
     copy[e.target.id].price =
+      copy[e.target.id].quantity * copy[e.target.id].product_price;
+    copy[e.target.id].allPrice =
       copy[e.target.id].quantity * copy[e.target.id].product_price +
       copy[e.target.id].delivery_fee;
     return setCartData(copy);
   };
+
+  function patchAmountChange(e) {
+    try {
+      axios.patch(
+        'http://localhost:10010/cart/1',
+        {
+          cart_id: cartData[e.target.id].cart_id,
+          quantity: cartData[e.target.id].quantity,
+          price: cartData[e.target.id].price,
+        }
+        // {
+        //   headers: {
+        //     Authorization: localStorage.getItem('accessToken'),
+        //   },
+        // }
+      );
+    } catch (err) {
+      if (err.response) {
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      } else {
+        console.log(`Error:${err.message}`);
+      }
+    }
+  }
+
+  //장바구니 삭제
+  const deleteCartList = e => {
+    let copy = [...cartData];
+    copy.splice(e.target.id, 1);
+    setCartData(copy);
+  };
+
+  function deleteCartListData(e) {
+    fetch('http://localhost:10010/cart/1', {
+      method: 'DELETE',
+      headers: {
+        // Authorization: localStorage.getItem('accessToken'),
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        cart_id: cartData[e.target.id].cart_id,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
+  }
 
   return (
     <div className={styles.cart_wrapper}>
@@ -47,12 +104,15 @@ function Cart() {
                 id={i}
                 increaseProductPriceAndAmount={increaseProductPriceAndAmount}
                 decreaseProductPriceAndAmount={decreaseProductPriceAndAmount}
+                deleteCartList={deleteCartList}
+                patchAmountChange={patchAmountChange}
+                deleteCartListData={deleteCartListData}
               />
             );
           })}
         </div>
 
-        <CartPayment />
+        <CartPayment cartData={cartData} />
       </div>
     </div>
   );

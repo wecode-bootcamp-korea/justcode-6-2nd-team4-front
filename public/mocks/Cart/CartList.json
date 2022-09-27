@@ -11,7 +11,8 @@
       "quantity": 1,
       "product_id": 3,
       "delivery_fee": 2500,
-      "product_price": 35000
+      "product_price": 35000,
+      "allPrice": 19000
     },
     {
       "name": "원목 귀여운 문패 개업 선물",
@@ -24,7 +25,8 @@
       "quantity": 2,
       "product_id": 6,
       "delivery_fee": 3000,
-      "product_price": 23000
+      "product_price": 23000,
+      "allPrice": 19000
     },
     {
       "name": "빈티지 나인 - 원목수납장",
@@ -37,7 +39,8 @@
       "quantity": 1,
       "product_id": 10,
       "delivery_fee": 3500,
-      "product_price": 159000
+      "product_price": 159000,
+      "allPrice": 19000
     },
     {
       "name": "댕댕이 산책가방",
@@ -50,7 +53,8 @@
       "quantity": 5,
       "product_id": 21,
       "delivery_fee": null,
-      "product_price": 17000
+      "product_price": 17000,
+      "allPrice": 19000
     },
     {
       "name": "바이올린 우드스피커",
@@ -63,7 +67,8 @@
       "quantity": 1,
       "product_id": 4,
       "delivery_fee": 3500,
-      "product_price": 170000
+      "product_price": 170000,
+      "allPrice": 19000
     },
     {
       "name": "홈카페인테리어액자 - 커피숍추천",
@@ -76,7 +81,8 @@
       "quantity": 1,
       "product_id": 13,
       "delivery_fee": 2000,
-      "product_price": 50000
+      "product_price": 50000,
+      "allPrice": 19000
     },
     {
       "name": "홈카페인테리어액자 - 커피숍추천",
@@ -89,7 +95,8 @@
       "quantity": 1,
       "product_id": 13,
       "delivery_fee": null,
-      "product_price": 50000
+      "product_price": 50000,
+      "allPrice": 19000
     },
     {
       "name": "원하는 곳 어디든? 원목 스툴",
@@ -102,7 +109,8 @@
       "quantity": 1,
       "product_id": 14,
       "delivery_fee": 3000,
-      "product_price": 60000
+      "product_price": 60000,
+      "allPrice": 19000
     },
     {
       "name": "원하는 곳 어디든? 원목 스툴",
@@ -115,7 +123,8 @@
       "quantity": 1,
       "product_id": 14,
       "delivery_fee": 3000,
-      "product_price": 60000
+      "product_price": 60000,
+      "allPrice": 19000
     },
     {
       "name": "원하는 곳 어디든? 원목 스툴",
@@ -128,7 +137,8 @@
       "quantity": 1,
       "product_id": 14,
       "delivery_fee": 3000,
-      "product_price": 60000
+      "product_price": 60000,
+      "allPrice": 19000
     }
   ]
 }
