@@ -6,6 +6,7 @@ import axios from 'axios';
 
 function Cart() {
   const [cartData, setCartData] = useState([]);
+  const [message, setMessage] = useState('');
 
   //user 장바구니 데이터 불러오기
   useEffect(() => {
@@ -91,6 +92,23 @@ function Cart() {
       .catch(error => console.log(error));
   }
 
+  //장바구니 결제
+  function payForSales() {
+    fetch('http://localhost:10010/payment/1', {
+      method: 'POST',
+      // headers: {
+      //   Authorization: localStorage.getItem('accessToken'),
+      // },
+    })
+      .then(res => res.json())
+      .then(data => setMessage(data.message))
+      .catch(error => console.log(error));
+
+    if (message === '구매가 완료 되었습니다.') {
+      alert('구매가 완료 되었습니다.');
+    }
+  }
+
   return (
     <div className={styles.cart_wrapper}>
       <div className={styles.cart_title}>장바구니</div>
@@ -107,12 +125,13 @@ function Cart() {
                 deleteCartList={deleteCartList}
                 patchAmountChange={patchAmountChange}
                 deleteCartListData={deleteCartListData}
+                payForSales={payForSales}
               />
             );
           })}
         </div>
 
-        <CartPayment cartData={cartData} />
+        <CartPayment cartData={cartData} payForSales={payForSales} />
       </div>
     </div>
   );
