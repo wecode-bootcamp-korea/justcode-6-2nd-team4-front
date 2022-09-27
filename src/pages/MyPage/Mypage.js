@@ -15,20 +15,18 @@ function MyPage() {
   // };
 
   useEffect(() => {
-    fetch('/mocks/Mock.json', {
+    fetch('http://localhost:10010/mypage/1', {
       headers: {
         'Content-Type': 'application/json',
       },
     })
       .then(res => res.json())
       .then(data => setResult([data.profile[0].name]))
-      // .then(data => console.log(data))
       .catch(err => {
         console.error(err);
       });
   }, []);
 
-  console.log(result);
   const goMain = () => {
     navigate('/');
   };

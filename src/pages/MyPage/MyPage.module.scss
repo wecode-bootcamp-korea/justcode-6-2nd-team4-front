@@ -17,14 +17,14 @@ section {
 
     background-color: #31b1e7;
     .mypage_header_wrapper {
-      padding: 25px 230px 20px 230px;
+      padding: 25px 230px 20px 200px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       h1 {
         font-size: 45px;
+        font-weight: 600;
         color: white;
-        margin-right: 45px;
       }
       // .mypage_header_nav {
       //   span {
@@ -45,8 +45,8 @@ section {
       padding: 20px 300px 20px 220px;
 
       img {
-        width: 150px;
-        height: 150px;
+        width: 140px;
+        height: 140px;
         margin-right: 40px;
       }
 
@@ -119,8 +119,8 @@ section {
         display: flex;
         justify-content: space-evenly;
         font-size: 20px;
-        border-top: 2px solid grey;
-        border-bottom: 1px solid black;
+        // border-top: 2px solid grey;
+        // border-bottom: 1px solid black;
 
         div {
           margin: 0px 50px;

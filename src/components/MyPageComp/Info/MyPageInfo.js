@@ -5,7 +5,7 @@ function MyPageinfo() {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
-    fetch('/mocks/Mock.json', {
+    fetch('http://localhost:10010/mypage/1', {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -20,13 +20,10 @@ function MyPageinfo() {
           data.info[0].detailed_address,
         ])
       )
-      // .then(data => console.log(data))
       .catch(err => {
         console.error(err);
       });
   }, []);
-
-  console.log(result);
 
   return (
     <section className={styles.mypage_myinfo_container}>
@@ -62,7 +59,7 @@ function MyPageinfo() {
 
       <div className={styles.mypage_myinfo_wrapper}>
         <div className={styles.myinfo_content_wrapper}>
-          <div className={styles.myinfo_content_img}>
+          <div className={styles.myinfo_content}>
             <div>연락처</div>
             <div>{result[1]}</div>
           </div>
@@ -71,7 +68,7 @@ function MyPageinfo() {
 
       <div className={styles.mypage_myinfo_wrapper}>
         <div className={styles.myinfo_content_wrapper}>
-          <div className={styles.myinfo_content_img}>
+          <div className={styles.myinfo_content}>
             <div>아이디</div>
             <div>{result[2]}</div>
           </div>
@@ -80,27 +77,13 @@ function MyPageinfo() {
 
       <div className={styles.mypage_myinfo_wrapper}>
         <div className={styles.myinfo_content_wrapper}>
-          <div className={styles.myinfo_content_img}>
+          <div className={styles.myinfo_content}>
             <div>주소</div>
             <div>{result[3]}</div>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.mypage_myinfo_wrapper}>
-        <div className={styles.myinfo_content_wrapper}>
-          <div className={styles.myinfo_content_img}>
-            <div>상세주소</div>
-            <div>{result[4]}</div>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.mypage_myinfo_wrapper}>
-        <div className={styles.myinfo_content_wrapper}>
-          <div className={styles.myinfo_content_img}>
-            <div>가입일</div>
-            <div>2022.09.26</div>
+            <div className={styles.myinfo_content}>
+              <div>상세주소</div>
+              <div>{result[4]}</div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 .mypage_liked_wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   .liked_content_wrapper {
@@ -7,7 +8,7 @@
     width: 80%;
     padding: 20px 30px 15px 0px;
     border-bottom: 1px solid #31b1e7;
-    ul {
+    .liked_content {
       .liked_content_img {
         margin: 0 30px;
         img {
