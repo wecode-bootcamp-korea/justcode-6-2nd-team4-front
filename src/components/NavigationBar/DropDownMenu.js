@@ -8,7 +8,7 @@ import accessory from '../../assets/images/wedding-rings.png';
 import objects from '../../assets/images/plant.png';
 import teddy from '../../assets/images/teddy-bear.png';
 
-function DropDownMenu({ handleMouseEnter, handleMouseLeave }) {
+function DropDownMenu({ handleMouseEnter, handleMouseLeave, handleFont }) {
   return (
     <div
       className={styles.activate}
@@ -17,7 +17,7 @@ function DropDownMenu({ handleMouseEnter, handleMouseLeave }) {
     >
       <div className={styles.container}>
         <Link to="/themeCategory/1?offset=0">
-          <div className={styles.box}>
+          <div className={styles.box} onClick={handleFont}>
             <img src={furniture} alt="가구 카테고리 이미지"></img>
             <div>가구</div>
           </div>
