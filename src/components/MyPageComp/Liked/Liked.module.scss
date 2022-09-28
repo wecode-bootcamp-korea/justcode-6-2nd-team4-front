@@ -1,0 +1,36 @@
+.mypage_liked_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .liked_content_wrapper {
+    font-size: 18px;
+    width: 80%;
+    padding: 20px 30px 15px 0px;
+    border-bottom: 1px solid #31b1e7;
+    .liked_content {
+      .liked_content_img {
+        margin: 0 30px;
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: black;
+      .liked_content_product {
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        li:first-child {
+          font-weight: 500;
+          font-size: 18px;
+          color: #31b1e7;
+          margin-bottom: 7px;
+        }
+      }
+    }
+  }
+}

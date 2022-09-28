@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './DropDown.module.scss';
 
 function DropDown({ title }) {
   const [dropDown, setDropDown] = useState(false);
-
+  const navigate = useNavigate();
+  const goMyPage = () => {
+    navigate('/mypage');
+  };
   useEffect(() => {});
 
   const handleLogout = () => {
@@ -24,7 +28,7 @@ function DropDown({ title }) {
             onMouseEnter={() => setDropDown(true)}
             onMouseLeave={() => setDropDown(false)}
           >
-            <li>마이페이지</li>
+            <li onClick={goMyPage}>마이페이지</li>
             <li>구매관리</li>
             <li>1:1 채팅</li>
             <li onClick={handleLogout}>로그아웃</li>
