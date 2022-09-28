@@ -16,11 +16,15 @@ function ItemCard({ data }) {
       <div className={styles.card_product_name}>{data.product_name}</div>
       <div className={styles.card_product_price}>{data.price}</div>
       <div className={styles.review_delivery_container}>
-        <div className={styles.card_review}>
-          <img src={star}></img>
-          <span>{data.average !== null ? data.average : '0.0'}</span>
-          <span>({data.review_count !== null ? data.review_count : '0'})</span>
-        </div>
+        {data.average !== 0 ? (
+          <div className={styles.card_review}>
+            <img src={star}></img>
+            <span>{data.average !== null ? data.average : '0.0'}</span>
+            <span>
+              ({data.review_count !== null ? data.review_count : '0'})
+            </span>
+          </div>
+        ) : null}
         {data.delivery_type == null ? (
           <div className={styles.delivery_type}>무료배송</div>
         ) : null}
