@@ -7,6 +7,7 @@ import Main from './pages/Main/Main';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import GlobalStyles from './styles/GlobalStyles';
+import ProductDetailProvider from './pages/ProductDetail/ProductDetailProvider';
 import Cart from './pages/Cart/Cart';
 import Developers from './pages/Developers/Developers';
 import KakaoRedirectHandler from './components/Kakao/KakaoRedirect';
@@ -26,6 +27,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/product/:productId" element={<ProductDetailProvider />} />
         <Route path="/themeCategory/:id" element={<Category />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />

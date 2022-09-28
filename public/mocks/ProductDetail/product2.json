@@ -1,0 +1,25 @@
+{
+  "getProducts": [
+    {
+      "id": 1,
+      "product_name": "원목",
+      "origin_price": "1500",
+      "thumbnail_image": "https://dummyimage.com/600x600/f3ff4a/000000&text=",
+      "is_liked": 0,
+      "like_count": "10",
+      "avg_rate": "3.5",
+      "review_count": "2",
+      "image_url": "https://dummyimage.com/600x600/f3ff4a/000000&text=",
+      "content": "제품 상세 정보 입니다.",
+      "seller_id": 1,
+      "name": "공방",
+      "profile_image": "https://dummyimage.com/600x600/f3ff4a/000000&text=",
+      "production_period": "2-7일",
+      "delivery_condition": "택배배송",
+      "delivery_fee": "3000",
+      "prohibited_deliver_area": "없음",
+      "category_id": 1
+    }
+  ],
+  "getOption": []
+}
