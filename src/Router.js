@@ -24,7 +24,7 @@ function Router() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/review" element={<Review />} />
+        <Route path="/review/:id" element={<Review />} />
         <Route
           path="/oauth/callback/kakao"
           element={<KakaoRedirectHandler />}
