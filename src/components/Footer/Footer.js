@@ -1,12 +1,19 @@
+import React from 'react';
 import styles from './Footer.module.scss';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../../src/assets/images/logo.png';
 
 function Footer() {
+  const navigate = useNavigate();
+  const goMain = () => {
+    navigate('/');
+  };
+
   return (
     <div className={styles.container}>
       <section className={styles.footer_border}>
         <div className={styles.footer_img_wrapper}>
-          <img alt="logo" src={logo} />
+          <img alt="logo" src={logo} onClick={goMain} />
         </div>
         <div className={styles.footer_description_wrapper}>
           <dl className={styles.footer_description_text}>

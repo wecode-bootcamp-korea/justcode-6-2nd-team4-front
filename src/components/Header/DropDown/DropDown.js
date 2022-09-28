@@ -1,35 +1,37 @@
-import { useState } from "react";
-import styles from "./DropDown.module.scss";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './DropDown.module.scss';
 
 function DropDown({ title }) {
   const [dropDown, setDropDown] = useState(false);
+  const navigate = useNavigate();
+  const goMyPage = () => {
+    navigate('/mypage');
+  };
+  useEffect(() => {});
 
-  // const reverseBoolean = () => {
-  //   setDropDown((current) => !current);
-  // };
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
 
   return (
     <div className={styles.container}>
-      <div
-        className={styles.drop_down_title}
-        // onClick={() => {
-        //   setDropDown((prevDropDown) => !prevDropDown);
-        // }}
-        onMouseEnter={() => setDropDown(true)}
-        onMouseLeave={() => {
-          setDropDown(false);
-        }}
-      >
+      <div className={styles.drop_down_title} onClick={() => setDropDown(true)}>
         {title}
       </div>
 
-      <div>
+      <div className={styles.dropdown_wrapper}>
         {dropDown ? (
-          <ul className={styles.drop_down_list}>
-            <li>마이페이지</li>
+          <ul
+            className={styles.drop_down_list}
+            onMouseEnter={() => setDropDown(true)}
+            onMouseLeave={() => setDropDown(false)}
+          >
+            <li onClick={goMyPage}>마이페이지</li>
             <li>구매관리</li>
             <li>1:1 채팅</li>
-            <li>로그아웃</li>
+            <li onClick={handleLogout}>로그아웃</li>
           </ul>
         ) : (
           <div></div>

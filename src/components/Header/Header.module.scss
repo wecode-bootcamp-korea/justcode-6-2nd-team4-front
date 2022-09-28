@@ -12,21 +12,38 @@
     padding: 30px;
     margin: 57px;
 
-    .user_info_nav {
+    .user_info {
       position: absolute;
       right: 0px;
       display: flex;
       justify-content: flex-end;
+      z-index: 1;
+    }
+
+    .user_info_nav {
+      display: flex;
+      font-size: 20px;
+
+      div:first-child {
+        color: #2fb1e7;
+        margin-right: 10px;
+        margin-left: 5px;
+        padding-right: 12px;
+        border-right: 1.5px solid gray;
+      }
     }
 
     .header_wrapper {
+      z-index: 2;
       .header_logo_wrapper {
         display: flex;
         justify-content: center;
         position: relative;
+
         .header_logo {
-          width: 110px;
-          height: 110px;
+          width: 150px;
+          height: 150px;
+          cursor: pointer;
         }
       }
 
