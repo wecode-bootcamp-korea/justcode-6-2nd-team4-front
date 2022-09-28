@@ -10,8 +10,11 @@ function Cart() {
 
   //user 장바구니 데이터 불러오기
   useEffect(() => {
-    fetch('http://localhost:10010/cart/1', {
+    fetch('http://localhost:10010/cart', {
       method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
     })
       .then(res => res.json())
       .then(data => {
@@ -46,17 +49,17 @@ function Cart() {
   function patchAmountChange(e) {
     try {
       axios.patch(
-        'http://localhost:10010/cart/1',
+        'http://localhost:10010/cart',
         {
           cart_id: cartData[e.target.id].cart_id,
           quantity: cartData[e.target.id].quantity,
           price: cartData[e.target.id].price,
+        },
+        {
+          headers: {
+            Authorization: localStorage.getItem('token'),
+          },
         }
-        // {
-        //   headers: {
-        //     Authorization: localStorage.getItem('accessToken'),
-        //   },
-        // }
       );
     } catch (err) {
       if (err.response) {
@@ -77,10 +80,10 @@ function Cart() {
   };
 
   function deleteCartListData(e) {
-    fetch('http://localhost:10010/cart/1', {
+    fetch('http://localhost:10010/cart', {
       method: 'DELETE',
       headers: {
-        // Authorization: localStorage.getItem('accessToken'),
+        Authorization: localStorage.getItem('token'),
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
