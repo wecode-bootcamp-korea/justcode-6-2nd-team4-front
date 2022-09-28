@@ -22,6 +22,7 @@ function MyPage() {
     })
       .then(res => res.json())
       .then(data => setResult([data.profile[0].name]))
+
       .catch(err => {
         console.error(err);
       });
@@ -30,6 +31,7 @@ function MyPage() {
   const goMain = () => {
     navigate('/');
   };
+
   return (
     <div className={styles.mypage_border}>
       <section className={styles.mypage_header_container}>

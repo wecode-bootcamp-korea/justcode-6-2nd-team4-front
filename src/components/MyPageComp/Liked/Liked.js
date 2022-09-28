@@ -20,8 +20,8 @@ function Liked() {
   return (
     <div>
       <div className={styles.mypage_liked_wrapper}>
-        {result.map(result => (
-          <div key={result.like_id} className={styles.liked_content_wrapper}>
+        {result.map((result, i) => {
+          <div key={i} className={styles.liked_content_wrapper}>
             <div className={styles.liked_content}>
               <div className={styles.liked_content_img}>
                 <img src={result.thumbnail_image} />
@@ -31,8 +31,8 @@ function Liked() {
                 <li>{result.name}</li>
               </ul>
             </div>
-          </div>
-        ))}
+          </div>;
+        })}
       </div>
     </div>
   );

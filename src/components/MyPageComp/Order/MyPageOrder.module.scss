@@ -35,9 +35,15 @@
   div:first-child {
     width: 40%;
   }
+
   .product_info_img {
     width: 100px;
     height: 100px;
+  }
+
+  li:first-child {
+    color: #31b1e7;
+    margin-bottom: 8px;
   }
 
   div {
