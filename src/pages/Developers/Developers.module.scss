@@ -1,0 +1,17 @@
+.developers_wrapper {
+  width: 80%;
+  margin: auto;
+  .title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+
+  .front_container {
+    display: flex;
+    .front_card_box {
+      margin-right: 30px;
+    }
+  }
+}

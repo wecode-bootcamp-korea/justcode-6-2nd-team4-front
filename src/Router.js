@@ -8,6 +8,7 @@ import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import GlobalStyles from './styles/GlobalStyles';
 import Cart from './pages/Cart/Cart';
+import Developers from './pages/Developers/Developers';
 
 const { BrowserRouter, Routes, Route } = require('react-router-dom');
 
@@ -24,6 +25,7 @@ function Router() {
         <Route path="/themeCategory/:id" element={<Category />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/developers" element={<Developers />} />
       </Routes>
       <Footer />
     </BrowserRouter>

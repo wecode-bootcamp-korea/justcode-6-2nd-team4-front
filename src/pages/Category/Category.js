@@ -6,7 +6,7 @@ import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 function Category() {
   const [categoryData, setCategoryData] = useState();
   const [offset, setOffset] = useState(0);
-  const [orderType, setOrderType] = useState('main');
+  const [orderType, setOrderType] = useState('');
   const [popular, setPopular] = useState(false);
   const [volume, setVolume] = useState(false);
   const [created, setCreated] = useState(false);
@@ -18,12 +18,9 @@ function Category() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(
-      `http://localhost:10010/themeCategory/${params.id}${location.search}`,
-      {
-        method: 'GET',
-      }
-    )
+    fetch(`http://localhost:10010/themeCategory/${params.id}?offset=0`, {
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(result => {
         setCategoryData(result.data);
@@ -40,20 +37,9 @@ function Category() {
     setOrderType('popular');
     navigate(`/themeCategory/${params.id}?sort=popular&offset=${offset}`);
     console.log('추천순 눌렀을 때 쿼리변경', location.search, orderType);
-    fetch(
-      `http://localhost:10010/themeCategory/${params.id}/sort${location.search}`,
-      {
-        method: 'GET',
-      }
-    )
-      .then(res => res.json())
-      .then(result => {
-        setCategoryData(result.data);
-      });
-    console.log('추천순 눌렀을 때 데이터 패치', location.search);
   };
 
-  const orderedByVolume = async () => {
+  const orderedByVolume = () => {
     setOffset(0);
     setVolume(true);
     setPopular(false);
@@ -63,20 +49,9 @@ function Category() {
     setOrderType('volume');
     navigate(`/themeCategory/${params.id}?sort=volume&offset=${offset}`);
     console.log('판매량순 눌렀을 때 쿼리변경', location.search, orderType);
-    await fetch(
-      `http://localhost:10010/themeCategory/${params.id}/sort${location.search}`,
-      {
-        method: 'GET',
-      }
-    )
-      .then(res => res.json())
-      .then(result => {
-        setCategoryData(result.data);
-      });
-    console.log('추천순 눌렀을 때 데이터 패치', location.search);
   };
 
-  const orderedByCreated = async () => {
+  const orderedByCreated = () => {
     setOffset(0);
     setOrderType('created');
     setVolume(false);
@@ -86,16 +61,6 @@ function Category() {
     setPriceDesc(false);
     navigate(`/themeCategory/${params.id}?sort=created&offset=${offset}`);
     console.log('등록순 눌렀을 때 쿼리변경', location.search, orderType);
-    await fetch(
-      `http://localhost:10010/themeCategory/${params.id}/sort${location.search}`,
-      {
-        method: 'GET',
-      }
-    )
-      .then(res => res.json())
-      .then(result => {
-        setCategoryData(result.data);
-      });
   };
 
   const orderedByPriceAesc = () => {
@@ -108,16 +73,6 @@ function Category() {
     setPriceDesc(false);
     navigate(`/themeCategory/${params.id}?sort=priceAesc&offset=${offset}`);
     console.log('낮은가격순 눌렀을 때 쿼리변경', location.search, orderType);
-    fetch(
-      `http://localhost:10010/themeCategory/${params.id}/sort${location.search}`,
-      {
-        method: 'GET',
-      }
-    )
-      .then(res => res.json())
-      .then(result => {
-        setCategoryData(result.data);
-      });
   };
 
   const orderedByPriceDesc = () => {
@@ -130,16 +85,6 @@ function Category() {
     setOrderType('priceDesc');
     navigate(`/themeCategory/${params.id}?sort=priceDesc&offset=${offset}`);
     console.log('높은가격순 눌렀을 때 쿼리변경', location.search, orderType);
-    fetch(
-      `http://localhost:10010/themeCategory/${params.id}/sort${location.search}`,
-      {
-        method: 'GET',
-      }
-    )
-      .then(res => res.json())
-      .then(result => {
-        setCategoryData(result.data);
-      });
   };
 
   const showMore = () => {
@@ -148,105 +93,27 @@ function Category() {
     const clientHeight = document.documentElement.clientHeight;
     console.log('스크롤 이벤트 발생');
 
-    if (scrollTop + clientHeight >= scrollHeight && orderType === 'main') {
-      navigate(`/themeCategory/${params.id}?offset=1`);
-      console.log('바껴라 좀', offset, location.search);
-      fetch(`http://localhost:10010/themeCategory/1?offset=1`, {
-        method: 'GET',
-      })
-        .then(res => res.json())
-        .then(result => {
-          setCategoryData(result.data);
-        });
-    } else if (
-      scrollTop + clientHeight >= scrollHeight &&
-      orderType === 'popular'
-    ) {
-      navigate(`/themeCategory/${params.id}?sort=popular&offset=1`);
-      fetch(
-        `http://localhost:10010/themeCategory/${params.id}/sort${location.search}`,
-        {
-          method: 'GET',
-        }
-      )
-        .then(res => res.json())
-        .then(result => {
-          setCategoryData(result.data);
-        });
-    } else if (
-      scrollTop + clientHeight >= scrollHeight &&
-      orderType === 'volume'
-    ) {
-      navigate(`/themeCategory/${params.id}?sort=volume&offset=1`);
-      fetch(
-        `http://localhost:10010/themeCategory/${params.id}/sort${location.search}`,
-        {
-          method: 'GET',
-        }
-      )
-        .then(res => res.json())
-        .then(result => {
-          setCategoryData(result.data);
-        });
-    } else if (
-      scrollTop + clientHeight >= scrollHeight &&
-      orderType === 'created'
-    ) {
-      navigate(`/themeCategory/${params.id}?sort=created&offset=1`);
-      fetch(
-        `http://localhost:10010/themeCategory/${params.id}/sort${location.search}`,
-        {
-          method: 'GET',
-        }
-      )
-        .then(res => res.json())
-        .then(result => {
-          setCategoryData(result.data);
-        });
-    } else if (
-      scrollTop + clientHeight >= scrollHeight &&
-      orderType === 'priceAesc'
-    ) {
-      navigate(`/themeCategory/${params.id}?sort=priceAesc&offset=1`);
-
-      fetch(
-        `http://localhost:10010/themeCategory/${params.id}/sort${location.search}`,
-        {
-          method: 'GET',
-        }
-      )
-        .then(res => res.json())
-        .then(result => {
-          setCategoryData(result.data);
-        });
-    } else if (
-      scrollTop + clientHeight >= scrollHeight &&
-      orderType === 'priceDesc'
-    ) {
-      navigate(`/themeCategory/${params.id}?sort=priceDesc&offset=1`);
-      console.log('높은가격더보기', location.search);
-      fetch(
-        `http://localhost:10010/themeCategory/${params.id}/sort${location.search}`,
-        {
-          method: 'GET',
-        }
-      )
-        .then(res => res.json())
-        .then(result => {
-          setCategoryData(result.data);
-        });
+    if (scrollTop + clientHeight >= scrollHeight) {
+      setOffset(1);
     }
-
-    console.log(offset);
-    console.log('더보기 눌렀을 때', orderType, offset);
   };
 
   useEffect(() => {
     window.addEventListener('scroll', showMore);
+    fetch(
+      `http://localhost:10010/themeCategory/${params.id}/sort?sort=${orderType}&offset=${offset}`,
+      {
+        method: 'GET',
+      }
+    )
+      .then(res => res.json())
+      .then(result => {
+        setCategoryData(result.data);
+      });
     return () => {
       window.addEventListener('scroll', showMore);
     };
-  }, [offset]);
+  }, [offset, orderType, params.id]);
 
   return (
     <div className={styles.category_wrapper}>
@@ -319,7 +186,6 @@ function Category() {
             );
           })}
       </div>
-      {/* <div onClick={showMore}> 더보기 </div> */}
     </div>
   );
 }
