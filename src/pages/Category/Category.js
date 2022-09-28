@@ -6,7 +6,7 @@ import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 function Category() {
   const [categoryData, setCategoryData] = useState();
   const [offset, setOffset] = useState(0);
-  const [orderType, setOrderType] = useState('');
+  const [orderType, setOrderType] = useState('main');
   const [popular, setPopular] = useState(false);
   const [volume, setVolume] = useState(false);
   const [created, setCreated] = useState(false);
@@ -101,7 +101,7 @@ function Category() {
   useEffect(() => {
     window.addEventListener('scroll', showMore);
     fetch(
-      `http://localhost:10010/themeCategory/${params.id}/sort?sort=${orderType}&offset=${offset}`,
+      `http://localhost:10010/themeCategory/1/sort?sort=${orderType}&offset=${offset}`,
       {
         method: 'GET',
       }
@@ -110,10 +110,11 @@ function Category() {
       .then(result => {
         setCategoryData(result.data);
       });
+    console.log(orderType);
     return () => {
       window.addEventListener('scroll', showMore);
     };
-  }, [offset, orderType, params.id]);
+  }, [offset, orderType]);
 
   return (
     <div className={styles.category_wrapper}>
