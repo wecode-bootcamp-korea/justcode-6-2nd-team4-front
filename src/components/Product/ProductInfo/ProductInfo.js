@@ -14,14 +14,14 @@ function ProductInfo() {
   const [likeCount, setLikeCount] = useState(1);
   const [isLiked, setIsLiked] = useState(false);
   useEffect(() => {
-    setIsLiked(product.isLike);
+    setIsLiked(product.isLiked);
     setLikeCount(product.likeCount);
   }, [product.isLike, product.likeCount]);
 
   const activateHeart = () => {
     patchProductLike(product.id).then(json => {
-      setIsLiked(json.isLike);
-      setLikeCount(json.likeCount);
+      setIsLiked(json.result[0].is_liked);
+      setLikeCount(json.result[0].like_count);
     });
   };
 

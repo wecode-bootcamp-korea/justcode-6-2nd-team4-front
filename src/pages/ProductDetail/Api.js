@@ -2,8 +2,8 @@ import { BASE_URL } from '../../config.js';
 
 export async function getProduct(productId) {
   const token = localStorage.getItem('token');
-  // const res = await fetch(`${BASE_URL}/products/${productId}`, {
-  const res = await fetch(`/mocks/ProductDetail/product${productId}.json`, {
+  const res = await fetch(`${BASE_URL}/products/${productId}`, {
+    // const res = await fetch(`/mocks/ProductDetail/product${productId}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -15,8 +15,8 @@ export async function getProduct(productId) {
 }
 
 export async function getReviews(productId) {
-  // const res = await fetch(`${BASE_URL}/productreviews/${productId}`, {
-  const res = await fetch(`/mocks/ProductDetail/reviews.json`, {
+  const res = await fetch(`${BASE_URL}/productreviews/${productId}`, {
+    // const res = await fetch(`/mocks/ProductDetail/reviews.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
