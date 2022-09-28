@@ -1,0 +1,27 @@
+/*
+ * position
+ * box model
+ * visual
+ * typography
+ * misc
+ */
+
+.seller_container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 35px;
+
+  .seller_image {
+    margin-right: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+
+  .seller_name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #222;
+  }
+}
