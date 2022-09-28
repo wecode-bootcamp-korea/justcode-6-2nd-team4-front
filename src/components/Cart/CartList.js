@@ -76,14 +76,18 @@ function CartList({
             </div>
           </div>
           <div className={styles.price_container}>
-            <div className={styles.price}>작품가격 {cartData.price}원</div>
+            <div className={styles.price}>
+              작품가격 {cartData.price.toLocaleString()}원
+            </div>
             <div className={styles.plus}> + </div>
             <div className={styles.delivery_fee}>
               {cartData.delivery_fee !== null
-                ? `배송비 ${cartData.delivery_fee}`
+                ? `배송비 ${cartData.delivery_fee.toLocaleString()}`
                 : '배송비무료'}
             </div>
-            <div className={styles.total_price}> 총 {cartData.allPrice}원</div>
+            <div className={styles.total_price}>
+              총 {cartData.allPrice.toLocaleString()}원
+            </div>
           </div>
         </div>
       </div>

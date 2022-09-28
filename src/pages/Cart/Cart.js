@@ -116,22 +116,28 @@ function Cart() {
     <div className={styles.cart_wrapper}>
       <div className={styles.cart_title}>장바구니</div>
       <div className={styles.cart_list_payment_wrapper}>
-        <div className={styles.cart_list_wrapper}>
-          {cartData.map((cartData, i) => {
-            return (
-              <CartList
-                key={i}
-                cartData={cartData}
-                id={i}
-                increaseProductPriceAndAmount={increaseProductPriceAndAmount}
-                decreaseProductPriceAndAmount={decreaseProductPriceAndAmount}
-                deleteCartList={deleteCartList}
-                patchAmountChange={patchAmountChange}
-                deleteCartListData={deleteCartListData}
-                payForSales={payForSales}
-              />
-            );
-          })}
+        <div className={styles.cart_list_container}>
+          <div className={styles.checked_all_container}>
+            <input type="checkbox"></input>
+            <span>전체선택</span>
+          </div>
+          <div className={styles.cart_list_wrapper}>
+            {cartData.map((cartData, i) => {
+              return (
+                <CartList
+                  key={i}
+                  cartData={cartData}
+                  id={i}
+                  increaseProductPriceAndAmount={increaseProductPriceAndAmount}
+                  decreaseProductPriceAndAmount={decreaseProductPriceAndAmount}
+                  deleteCartList={deleteCartList}
+                  patchAmountChange={patchAmountChange}
+                  deleteCartListData={deleteCartListData}
+                  payForSales={payForSales}
+                />
+              );
+            })}
+          </div>
         </div>
 
         <CartPayment cartData={cartData} payForSales={payForSales} />

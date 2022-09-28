@@ -18,9 +18,12 @@ function Category() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:10010/themeCategory/${params.id}?offset=0`, {
-      method: 'GET',
-    })
+    fetch(
+      `http://localhost:10010/themeCategory/${params.id}/sort?sort=main&offset=0`,
+      {
+        method: 'GET',
+      }
+    )
       .then(res => res.json())
       .then(result => {
         setCategoryData(result.data);
