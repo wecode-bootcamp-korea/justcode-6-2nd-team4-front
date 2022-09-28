@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import styles from './Login.module.scss';
 import logo from '../../../src/assets/images/logo.png';
 import Modal from '../../../src/components/LoginModal/Modal.js';
+import { KAKAO_AUTH_URL } from '../../components/Kakao/Kakao';
 
 function Login() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,13 +24,13 @@ function Login() {
         </section>
 
         <section className={styles.login_button_wrapper}>
-          <button>
+          <a href={KAKAO_AUTH_URL}>
             <img
               alt="카카오"
               src="https://cdn-icons-png.flaticon.com/512/3991/3991999.png"
             />
             <span> 카카오 계정으로 계속하기</span>
-          </button>
+          </a>
 
           <button onMouseDown={() => setIsOpen(true)} onClick={modalHandler}>
             <img alt="로고" src={logo} />

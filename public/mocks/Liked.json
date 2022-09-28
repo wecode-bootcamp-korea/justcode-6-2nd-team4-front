@@ -1,0 +1,22 @@
+{
+  "LikeList": [
+    {
+      "like_id": 1,
+      "name": "삼단 수납형 서랍",
+      "thumbnail_image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
+      "seller_name": "공방"
+    },
+    {
+      "like_id": 2,
+      "name": "삼단 서랍",
+      "thumbnail_image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
+      "seller_name": "너의 공방"
+    },
+    {
+      "like_id": 3,
+      "name": "서랍 서랍 서랍",
+      "thumbnail_image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
+      "seller_name": "우리의 공방"
+    }
+  ]
+}

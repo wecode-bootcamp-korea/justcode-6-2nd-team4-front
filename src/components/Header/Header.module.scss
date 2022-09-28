@@ -22,6 +22,8 @@
 
     .user_info_nav {
       display: flex;
+      font-size: 20px;
+
       div:first-child {
         color: #2fb1e7;
         margin-right: 10px;
@@ -39,8 +41,8 @@
         position: relative;
 
         .header_logo {
-          width: 110px;
-          height: 110px;
+          width: 150px;
+          height: 150px;
           cursor: pointer;
         }
       }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Button from '../../components/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
+import Button from '../../components/Button/Button';
 import styles from './Signup.module.scss';
 
 const NAME_REGEX = /^[a-zA-Z\s]{3,30}$/;
@@ -15,9 +16,11 @@ function Signup() {
   const phoneRef = useRef('');
   const samePwdRef = useRef('');
 
+  const [error, setError] = useState(null);
+
   // error 메시지 값 설정
-  const [exist, setExist] = useState(false);
-  const [signedUp, setSignedUp] = useState('');
+  // const [exist, setExist] = useState(false);
+  // const [signedUp, setSignedUp] = useState('');
 
   // backend에 post될 값
   const [pwd, setPwd] = useState('');
@@ -33,7 +36,12 @@ function Signup() {
   const [validPhone, setValidPhone] = useState(false);
   const [validName, setValidName] = useState(false);
 
-  const [emailFocus, setEmailFocus] = useState(false);
+  const navigate = useNavigate();
+  const goMain = () => {
+    navigate('/');
+  };
+
+  // const [emailFocus, setEmailFocus] = useState(false);
 
   useEffect(() => {
     setValidPhone(PHONE_REGEX.test(phone));
@@ -52,26 +60,54 @@ function Signup() {
     setValidEmail(EMAIL_REGEX.test(email));
   }, [email]);
 
-  const postInfoHandler = e => {
-    e.preventDefault();
+  // const postInfoHandler = e => {
+  //   e.preventDefault();
 
-    fetch('http://localhost:10010/users/signup', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: emailRef.current.value,
-        pwd: pwdRef.current.value,
-        name: nameRef.current.value,
-        phone: phoneRef.current.value,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
+  //   fetch('http://localhost:10010/users/signup', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       email: emailRef.current.value,
+  //       pwd: pwdRef.current.value,
+  //       name: nameRef.current.value,
+  //       phone: phoneRef.current.value,
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log(data);
+  //       goMain();
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     });
+  // };
+
+  async function postInfoHandler() {
+    setError(null);
+    try {
+      const res = await fetch('http://localhost:10010/users/signup', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: emailRef.current.value,
+          pwd: pwdRef.current.value,
+          name: nameRef.current.value,
+          phone: phoneRef.current.value,
+        }),
       });
-  };
+      const data = await res.json();
+
+      goMain();
+    } catch (error) {
+      console.error(error);
+      setError(error.msessage);
+    }
+  }
 
   return (
     <div className={styles.container}>
@@ -91,8 +127,8 @@ function Signup() {
             onChange={e => setEmail(e.target.value)}
             aria-invalid={validEmail ? 'false' : 'true'}
             aria-describedby="emailNote"
-            onFocus={() => setEmailFocus(true)}
-            onBlur={() => setEmailFocus(false)}
+            // onFocus={() => setEmailFocus(true)}
+            // onBlur={() => setEmailFocus(false)}
           />
 
           <p
@@ -188,7 +224,7 @@ function Signup() {
 
         <Button
           event={postInfoHandler}
-          inputValue={!validPwd || !validEmail ? true : false}
+          inputValue={!validPwd || !validEmail || !validSamePwd ? true : false}
           title="확인"
         />
       </div>

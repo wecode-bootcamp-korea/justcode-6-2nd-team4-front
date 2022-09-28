@@ -1,20 +1,20 @@
-.signup_btn_leave {
+@mixin custom_btn {
   margin-top: 10px;
-  width: 420px;
-  height: 60px;
+  width: 500px;
+  height: 100px;
+  font-size: 30px;
   border: none;
   color: white;
+}
+
+.signup_btn_leave {
   background-color: lightgray;
-  font-size: 20px;
+  @include custom_btn();
 }
 
 .signup_btn_enter {
-  margin-top: 10px;
-  width: 420px;
-  height: 60px;
-  border: none;
-  color: white;
   background-color: #31b1e7;
-  font-size: 20px;
+  @include custom_btn();
+
   cursor: pointer;
 }
