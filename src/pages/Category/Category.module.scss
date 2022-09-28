@@ -1,0 +1,50 @@
+@mixin todo {
+  border: 1px solid gray;
+}
+
+@mixin title_font_style {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.category_wrapper {
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  .title {
+    @include title_font_style;
+  }
+  .total_filter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    .total {
+      padding-top: 5px;
+      color: gray;
+    }
+    .filter {
+      display: flex;
+      .recommends {
+        padding: 6px 15px 6px;
+        margin-left: 10px;
+        border: 0px;
+        border-radius: 5px;
+        background-color: rgb(238, 238, 238);
+      }
+      .isclicked_recommends {
+        padding: 6px 15px 6px;
+        margin-left: 10px;
+        border: 0px;
+        border-radius: 5px;
+        background-color: rgb(179, 178, 178);
+      }
+    }
+  }
+  .card_container {
+    display: flex;
+    flex-wrap: wrap;
+    .card_box {
+      margin-top: 30px;
+    }
+  }
+}

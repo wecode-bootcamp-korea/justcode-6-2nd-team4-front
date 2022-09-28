@@ -1,0 +1,69 @@
+@mixin todo {
+  border: 1px solid rgb(231, 231, 231);
+}
+
+@mixin titles {
+  font-size: 17px;
+  color: gray;
+}
+
+@mixin prices {
+  font-size: 19px;
+  font-weight: bold;
+  color: gray;
+}
+
+.payment_wrapper {
+  width: 36%;
+  margin-left: 40px;
+
+  .payment_box {
+    @include todo;
+    width: 100%;
+    border-radius: 5px;
+    .total_box {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 20px 20px 20px;
+      .total_title {
+        @include titles;
+      }
+      .total_price {
+        @include prices;
+      }
+    }
+    .delivery_fee_box {
+      display: flex;
+      justify-content: space-between;
+      margin: 0px 20px 20px 20px;
+      .delivery_fee {
+        @include titles;
+      }
+      .total_delivery {
+        @include prices;
+      }
+    }
+    .total_payment_box {
+      display: flex;
+      justify-content: space-between;
+      margin: 0px 20px 50px 20px;
+      .payment_title {
+        font-size: 22px;
+        font-weight: bold;
+      }
+      .total_payment_amount {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .buy_btn {
+    margin-top: 15px;
+    padding: 15px 0px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(13, 184, 241);
+  }
+}

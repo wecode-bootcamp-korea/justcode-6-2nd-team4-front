@@ -5,7 +5,11 @@ function MyPageinfo() {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
+<<<<<<< HEAD
     fetch(`http://localhost:10010/mypage/${localStorage.getItem('id')}`, {
+=======
+    fetch('http://localhost:10010/mypage/1', {
+>>>>>>> main
       headers: {
         'Content-Type': 'application/json',
       },

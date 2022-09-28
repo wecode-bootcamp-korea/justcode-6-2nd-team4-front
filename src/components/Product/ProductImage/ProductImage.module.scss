@@ -1,0 +1,17 @@
+/*
+ * position
+ * box model
+ * visual
+ * typography
+ * misc
+ */
+
+.product_image {
+  width: 50%;
+
+  img {
+    width: 100%;
+    height: 600px;
+    border-radius: 12px;
+  }
+}
