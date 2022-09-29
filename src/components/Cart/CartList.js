@@ -21,9 +21,6 @@ function CartList({
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.check_name_box}>
-          <div className={styles.checkbox_box}>
-            <input type="checkbox"></input>
-          </div>
           <div className={styles.shop}>{cartData.shop}</div>
         </div>
         <div className={styles.delete}>
@@ -76,14 +73,18 @@ function CartList({
             </div>
           </div>
           <div className={styles.price_container}>
-            <div className={styles.price}>작품가격 {cartData.price}원</div>
+            <div className={styles.price}>
+              작품가격 {cartData.price.toLocaleString()}원
+            </div>
             <div className={styles.plus}> + </div>
             <div className={styles.delivery_fee}>
-              {cartData.delivery_fee !== null
-                ? `배송비 ${cartData.delivery_fee}`
+              {cartData.delivery_fee !== 0
+                ? `배송비 ${cartData.delivery_fee.toLocaleString()}원`
                 : '배송비무료'}
             </div>
-            <div className={styles.total_price}> 총 {cartData.allPrice}원</div>
+            <div className={styles.total_price}>
+              총 {cartData.allPrice.toLocaleString()}원
+            </div>
           </div>
         </div>
       </div>
