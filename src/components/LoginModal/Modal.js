@@ -4,7 +4,7 @@ import styles from './Modal.module.scss';
 import { useNavigate } from 'react-router-dom';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,24}$/;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{1,24}$/;
 
 function LoginModal({ open, onClose }) {
   const pwdRef = useRef('');
@@ -47,8 +47,6 @@ function LoginModal({ open, onClose }) {
         if (data.token) {
           localStorage.setItem('token', data.token);
           localStorage.setItem('userName', data.name);
-          localStorage.setItem('id', data.id);
-
           goMain();
         }
       })

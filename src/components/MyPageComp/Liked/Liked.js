@@ -5,7 +5,11 @@ function Liked() {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
+<<<<<<< HEAD
+    fetch(`http://localhost:10010/mypage/liked/${localStorage.getItem('id')}`, {
+=======
     fetch('http://localhost:10010/mypage/liked/1', {
+>>>>>>> main
       headers: {
         'Content-Type': 'application/json',
       },
@@ -17,11 +21,21 @@ function Liked() {
       });
   }, []);
 
+<<<<<<< HEAD
+  console.log(result);
+
+  return (
+    <div>
+      <div className={styles.mypage_liked_wrapper}>
+        {result.map(result => (
+          <div className={styles.liked_content_wrapper}>
+=======
   return (
     <div>
       <div className={styles.mypage_liked_wrapper}>
         {result.map((result, i) => {
           <div key={i} className={styles.liked_content_wrapper}>
+>>>>>>> main
             <div className={styles.liked_content}>
               <div className={styles.liked_content_img}>
                 <img src={result.thumbnail_image} />
@@ -31,8 +45,13 @@ function Liked() {
                 <li>{result.name}</li>
               </ul>
             </div>
+<<<<<<< HEAD
+          </div>
+        ))}
+=======
           </div>;
         })}
+>>>>>>> main
       </div>
     </div>
   );

@@ -30,10 +30,10 @@ function Router() {
         <Route path="/product/:productId" element={<ProductDetailProvider />} />
         <Route path="/themeCategory/:id" element={<Category />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/review/:id" element={<Review />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/developers" element={<Developers />} />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/review" element={<Review />} />
         <Route
           path="/oauth/callback/kakao"
           element={<KakaoRedirectHandler />}

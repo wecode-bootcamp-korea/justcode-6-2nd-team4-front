@@ -1,19 +1,32 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from './Review.module.scss';
 import Button from '../../components/Button/Button';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Review() {
   const reviewRef = useRef('');
+  const params = useParams();
+  const id = params.id;
+  const navigate = useNavigate();
+  const goMypage = () => {
+    navigate('/mypage');
+  };
 
-  fetch('http://localhost:10010/users/login', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      review: reviewRef.current.value,
-    }),
-  });
+  const reviewHandler = () => {
+    fetch(`http://localhost:10010/productreviews/${id}`, {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        review_content: reviewRef.current.value,
+        product_id: id,
+      }),
+    });
+    goMypage();
+  };
 
   return (
     <div className={styles.review_border}>
@@ -44,7 +57,7 @@ function Review() {
         ></input>
       </div>
       <div className={styles.review_button}>
-        <Button title="제출" />
+        <Button event={reviewHandler} title="제출" />
       </div>
     </div>
   );
