@@ -7,7 +7,7 @@ import { productSchema } from './schemas/productSchema';
 import { productOptionsSchema } from './schemas/productOptionsSchema';
 import { productReviewsSchema } from './schemas/productReviewsSchema';
 import { setProduct } from './redux/productSlice';
-import { setOptions } from './redux/optionsSlice';
+import { initOptionsSelected, setOptions } from './redux/optionsSlice';
 import { setReviews } from './redux/reviewsSlice';
 import { DELIVERY_TOPICS } from './constants/deliveryTopic';
 import useMoveScroll from './hooks/useMoveScroll';
@@ -51,6 +51,7 @@ function ProductDetail() {
         )
       );
     });
+    dispatch(initOptionsSelected());
   }, []);
 
   const tabs = {
