@@ -10,6 +10,9 @@ function MyPageOrder() {
   const goReview = id => {
     navigate(`/review/${id}`);
   };
+  const goItem = e => {
+    navigate(`/product/${result[e.target.id].product_id}`);
+  };
 
   // const postProductInfo = e => {
   //   const value = e.target.id;
@@ -54,6 +57,10 @@ function MyPageOrder() {
                   <img
                     className={styles.product_info_img}
                     src={result.thumbnail_image}
+                    id={i}
+                    onClick={e => {
+                      goItem(e);
+                    }}
                   />
                 </div>
                 <ul className={styles.product_info}>
