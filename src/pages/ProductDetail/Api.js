@@ -1,13 +1,14 @@
 import { BASE_URL } from '../../config.js';
 
 export async function getProduct(productId) {
-  const token = localStorage.getItem('token');
-  const res = await fetch(`${BASE_URL}/products/${productId}`, {
+  // const token = localStorage.getItem('token');
+  const userId = localStorage.getItem('id');
+  const res = await fetch(`${BASE_URL}/products/${productId}/${userId}`, {
     // const res = await fetch(`/mocks/ProductDetail/product${productId}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: token,
+      // Authorization: token,
     },
   }).catch(() => alert('제품을 불러오는데 실패하였습니다.'));
 
@@ -53,7 +54,7 @@ export async function postProductCart(data) {
       Authorization: token,
     },
     body: JSON.stringify(data),
-  }).catch(() => alert('장바구니 추가를 실패하였습니다.'));
+  });
 
   return res;
 }
