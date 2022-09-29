@@ -11,6 +11,9 @@ function DropDown({ title }) {
   const goMain = () => {
     navigate('/');
   };
+  const goCart = () => {
+    navigate('/cart');
+  };
 
   useEffect(() => {});
 
@@ -34,7 +37,7 @@ function DropDown({ title }) {
             onMouseLeave={() => setDropDown(false)}
           >
             <li onClick={goMyPage}>마이페이지</li>
-            <li>구매관리</li>
+            <li onClick={goCart}>장바구니</li>
             <li>1:1 채팅</li>
             <li onClick={handleLogout}>로그아웃</li>
           </ul>
