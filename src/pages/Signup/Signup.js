@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../../components/Button/Button';
+import DaumPost from '../../components/SignupComp/Adress/Adress';
 import styles from './Signup.module.scss';
 
 const NAME_REGEX = /^[a-zA-Z\s]{3,30}$/;
@@ -10,11 +11,31 @@ const EMAIL_REGEX = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,24}$/;
 
 function Signup() {
+  const childRef = useRef('');
+  const [address, setAddress] = useState('');
+
+  const getChildState = e => {
+    e.preventDefault();
+
+    const childState = childRef.current.getChild();
+    setAddress(childState);
+  };
+
+  // console.log(setAddress);
+
   const pwdRef = useRef('');
   const emailRef = useRef('');
   const nameRef = useRef('');
   const phoneRef = useRef('');
   const samePwdRef = useRef('');
+  const addressRef = useRef('');
+  const detailedAddressRef = useState('');
+
+  const [openPostcode, setOpenPostcode] = useState(false);
+  const toggle = e => {
+    e.preventDefault();
+    setOpenPostcode(current => !current);
+  };
 
   const [error, setError] = useState(null);
 
@@ -22,14 +43,13 @@ function Signup() {
   // const [exist, setExist] = useState(false);
   // const [signedUp, setSignedUp] = useState('');
 
-  // backend에 post될 값
   const [pwd, setPwd] = useState('');
   const [email, setEmail] = useState('');
   const [samePwd, setSamePwd] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [detailedAddress, setdetailedAddress] = useState('');
 
-  // 에러 메시지 조건, 버튼 활성&비활성
   const [validPwd, setValidPwd] = useState(false);
   const [validSamePwd, setValidSamePwd] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
@@ -98,6 +118,8 @@ function Signup() {
           pwd: pwdRef.current.value,
           name: nameRef.current.value,
           phone: phoneRef.current.value,
+          address: addressRef.current.value,
+          detailed_address: detailedAddressRef.current.value,
         }),
       });
       const data = await res.json();
@@ -211,6 +233,33 @@ function Signup() {
           >
             " - 을 제외한 전화번호를 입력해주세요.""
           </p>
+        </div>
+
+        <div className={styles.signup_input_wrapper}>
+          <div>주소</div>
+          <input
+            disabled
+            value={address}
+            ref={addressRef}
+            onChange={e => setAddress(e.target.value)}
+          />
+        </div>
+
+        <div className={styles.post_wrapper}>
+          <button onClick={toggle} onMouseDown={getChildState}>
+            주소선택
+          </button>
+          {openPostcode && <DaumPost ref={childRef} />}
+          {/* <button onClick={getChildState}>확인</button> */}
+        </div>
+
+        <div className={styles.signup_input_wrapper}>
+          <div>상세주소</div>
+          <input
+            placeholder="상세주소를 입력해 주세요"
+            ref={detailedAddressRef}
+            onChange={e => setdetailedAddress(e.target.value)}
+          />
         </div>
       </form>
 

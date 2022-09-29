@@ -5,8 +5,10 @@ function Liked() {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:10010/mypage/liked/1', {
+    fetch('http://localhost:10010/mypage/liked/', {
       headers: {
+        Authorization: localStorage.getItem('token'),
+
         'Content-Type': 'application/json',
       },
     })

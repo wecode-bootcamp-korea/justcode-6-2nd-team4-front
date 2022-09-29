@@ -5,8 +5,10 @@ function MyPageinfo() {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:10010/mypage/1', {
+    fetch('http://localhost:10010/mypage/', {
       headers: {
+        Authorization: localStorage.getItem('token'),
+
         'Content-Type': 'application/json',
       },
     })

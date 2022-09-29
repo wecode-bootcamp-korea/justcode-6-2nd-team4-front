@@ -7,8 +7,8 @@ function MyPageOrder() {
   const [postResult, setPostResult] = useState([]);
 
   const navigate = useNavigate();
-  const goReview = () => {
-    navigate('/review');
+  const goReview = id => {
+    navigate(`/review/${id}`);
   };
 
   // const postProductInfo = e => {
@@ -18,23 +18,14 @@ function MyPageOrder() {
   // };
 
   const postProductInfo = e => {
-    fetch('http://localhost:10010/productreviews/review/', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        poduct_id: e.target.id,
-      }),
-    }).catch(err => {
-      console.error(err);
-    });
-    goReview();
+    goReview(e.target.id);
   };
 
   useEffect(() => {
-    fetch('http://localhost:10010/mypage/order/1', {
+    fetch('http://localhost:10010/mypage/order/', {
       headers: {
+        Authorization: localStorage.getItem('token'),
+
         'Content-Type': 'application/json',
       },
     })

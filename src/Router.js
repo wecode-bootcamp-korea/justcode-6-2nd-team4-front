@@ -10,10 +10,10 @@ import GlobalStyles from './styles/GlobalStyles';
 import ProductDetailProvider from './pages/ProductDetail/ProductDetailProvider';
 import Cart from './pages/Cart/Cart';
 import Developers from './pages/Developers/Developers';
-import KakaoRedirectHandler from './components/Kakao/KakaoRedirect';
+import KakaoRedirectHandler from './components/SignupComp/Kakao/KakaoRedirect';
 import MyPage from './pages/MyPage/Mypage';
 import Review from './pages/Review/Review';
-
+import DaumPost from './components/SignupComp/Adress/Adress';
 const { BrowserRouter, Routes, Route } = require('react-router-dom');
 
 function Router() {
@@ -29,10 +29,11 @@ function Router() {
         <Route path="/product/:productId" element={<ProductDetailProvider />} />
         <Route path="/themeCategory/:id" element={<Category />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/review/:id" element={<Review />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/developers" element={<Developers />} />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/review" element={<Review />} />
+        <Route path="/post" element={<DaumPost />} />
         <Route
           path="/oauth/callback/kakao"
           element={<KakaoRedirectHandler />}

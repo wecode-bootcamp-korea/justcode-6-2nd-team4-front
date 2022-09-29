@@ -4,14 +4,16 @@ import styles from './Modal.module.scss';
 import { useNavigate } from 'react-router-dom';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,24}$/;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{1,24}$/;
 
 function LoginModal({ open, onClose }) {
   const pwdRef = useRef('');
   const emailRef = useRef('');
+  const invalidRef = useRef('');
 
   const [pwd, setPwd] = useState('');
   const [email, setEmail] = useState('');
+  const [invalid, setInvalid] = useState('');
 
   const [validPwd, setValidPwd] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
@@ -47,9 +49,10 @@ function LoginModal({ open, onClose }) {
         if (data.token) {
           localStorage.setItem('token', data.token);
           localStorage.setItem('userName', data.name);
-          localStorage.setItem('id', data.id);
 
           goMain();
+        } else {
+          setInvalid('activated');
         }
       })
       .catch(err => {
@@ -70,6 +73,15 @@ function LoginModal({ open, onClose }) {
             <div className={styles.modal_title}>
               <h1>로그인</h1>
               <p>사조의 공방 로그인 페이지 입니다</p>
+              <p
+                ref={invalidRef}
+                className={
+                  invalid ? `${styles.errPopUp}` : `${styles.offscreen}`
+                }
+                aria-live="assertive"
+              >
+                Please, Check Your E-mail and Password.
+              </p>
             </div>
 
             <section className={styles.modal_input_border}>
