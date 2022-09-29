@@ -20,7 +20,7 @@ function Cart() {
       .then(data => {
         setCartData(data.cart);
       });
-  }, []);
+  }, [cartData]);
 
   //장바구니 수량 및 가격 변경
   const increaseProductPriceAndAmount = e => {
@@ -97,11 +97,11 @@ function Cart() {
 
   //장바구니 결제
   function payForSales() {
-    fetch('http://localhost:10010/payment/1', {
+    fetch('http://localhost:10010/payment', {
       method: 'POST',
-      // headers: {
-      //   Authorization: localStorage.getItem('accessToken'),
-      // },
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
     })
       .then(res => res.json())
       .then(data => setMessage(data.message))

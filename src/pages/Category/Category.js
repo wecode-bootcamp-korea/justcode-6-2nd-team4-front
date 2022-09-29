@@ -17,19 +17,6 @@ function Category() {
   const params = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch(
-      `http://localhost:10010/themeCategory/${params.id}/sort?sort=main&offset=0`,
-      {
-        method: 'GET',
-      }
-    )
-      .then(res => res.json())
-      .then(result => {
-        setCategoryData(result.data);
-      });
-  }, [params.id]);
-
   const orderedByRecommend = () => {
     setOffset(0);
     setPopular(true);
@@ -104,7 +91,7 @@ function Category() {
   useEffect(() => {
     window.addEventListener('scroll', showMore);
     fetch(
-      `http://localhost:10010/themeCategory/1/sort?sort=${orderType}&offset=${offset}`,
+      `http://localhost:10010/themeCategory/${params.id}/sort?sort=${orderType}&offset=${offset}`,
       {
         method: 'GET',
       }
@@ -117,7 +104,11 @@ function Category() {
     return () => {
       window.addEventListener('scroll', showMore);
     };
-  }, [offset, orderType]);
+  }, [offset, orderType, params.id]);
+
+  const goToDetail = e => {
+    navigate(`/product/${categoryData[e.target.id].product_id}`);
+  };
 
   return (
     <div className={styles.category_wrapper}>
@@ -185,7 +176,7 @@ function Category() {
           categoryData.map((data, i) => {
             return (
               <div key={i} className={styles.card_box}>
-                <ItemCard data={data} />
+                <ItemCard id={i} goToDetail={goToDetail} data={data} />
               </div>
             );
           })}
