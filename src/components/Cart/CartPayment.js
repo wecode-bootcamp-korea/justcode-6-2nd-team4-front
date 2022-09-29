@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CartPayment.module.scss';
 
-function CartPayment({ cartData, payForSales }) {
+function CartPayment({ cartData, payForSales, resetCart }) {
   const price = cartData.map(el => {
     return el.quantity * el.product_price;
   });
@@ -37,7 +37,13 @@ function CartPayment({ cartData, payForSales }) {
         </div>
       </div>
 
-      <div className={styles.buy_btn} onClick={payForSales}>
+      <div
+        className={styles.buy_btn}
+        onClick={() => {
+          payForSales();
+          resetCart();
+        }}
+      >
         구매하기
       </div>
     </div>

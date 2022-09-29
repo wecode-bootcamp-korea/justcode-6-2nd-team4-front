@@ -21,9 +21,6 @@ function CartList({
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.check_name_box}>
-          <div className={styles.checkbox_box}>
-            <input type="checkbox"></input>
-          </div>
           <div className={styles.shop}>{cartData.shop}</div>
         </div>
         <div className={styles.delete}>
@@ -81,8 +78,8 @@ function CartList({
             </div>
             <div className={styles.plus}> + </div>
             <div className={styles.delivery_fee}>
-              {cartData.delivery_fee !== null
-                ? `배송비 ${cartData.delivery_fee.toLocaleString()}`
+              {cartData.delivery_fee !== 0
+                ? `배송비 ${cartData.delivery_fee.toLocaleString()}원`
                 : '배송비무료'}
             </div>
             <div className={styles.total_price}>

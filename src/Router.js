@@ -14,7 +14,6 @@ import KakaoRedirectHandler from './components/Kakao/KakaoRedirect';
 import MyPage from './pages/MyPage/Mypage';
 import Review from './pages/Review/Review';
 
-
 const { BrowserRouter, Routes, Route } = require('react-router-dom');
 
 function Router() {

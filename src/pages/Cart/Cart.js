@@ -20,7 +20,8 @@ function Cart() {
       .then(data => {
         setCartData(data.cart);
       });
-  }, [cartData]);
+  }, []);
+  console.log(cartData);
 
   //장바구니 수량 및 가격 변경
   const increaseProductPriceAndAmount = e => {
@@ -112,35 +113,57 @@ function Cart() {
     }
   }
 
+  //장바구니 reset
+  const resetCart = () => {
+    fetch('http://localhost:10010/cart', {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setCartData(data.cart);
+      });
+    if (message === '장바구니가 비었습니다.') {
+      alert('장바구니가 비었습니다.');
+    }
+  };
+
   return (
     <div className={styles.cart_wrapper}>
       <div className={styles.cart_title}>장바구니</div>
       <div className={styles.cart_list_payment_wrapper}>
         <div className={styles.cart_list_container}>
-          <div className={styles.checked_all_container}>
-            <input type="checkbox"></input>
-            <span>전체선택</span>
-          </div>
           <div className={styles.cart_list_wrapper}>
-            {cartData.map((cartData, i) => {
-              return (
-                <CartList
-                  key={i}
-                  cartData={cartData}
-                  id={i}
-                  increaseProductPriceAndAmount={increaseProductPriceAndAmount}
-                  decreaseProductPriceAndAmount={decreaseProductPriceAndAmount}
-                  deleteCartList={deleteCartList}
-                  patchAmountChange={patchAmountChange}
-                  deleteCartListData={deleteCartListData}
-                  payForSales={payForSales}
-                />
-              );
-            })}
+            {cartData &&
+              cartData.map((cartData, i) => {
+                return (
+                  <CartList
+                    key={i}
+                    cartData={cartData}
+                    id={i}
+                    increaseProductPriceAndAmount={
+                      increaseProductPriceAndAmount
+                    }
+                    decreaseProductPriceAndAmount={
+                      decreaseProductPriceAndAmount
+                    }
+                    deleteCartList={deleteCartList}
+                    patchAmountChange={patchAmountChange}
+                    deleteCartListData={deleteCartListData}
+                    payForSales={payForSales}
+                  />
+                );
+              })}
           </div>
         </div>
 
-        <CartPayment cartData={cartData} payForSales={payForSales} />
+        <CartPayment
+          cartData={cartData}
+          payForSales={payForSales}
+          resetCart={resetCart}
+        />
       </div>
     </div>
   );
