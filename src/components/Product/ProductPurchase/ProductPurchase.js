@@ -21,6 +21,12 @@ function ProductPurchase() {
           quantity: opt.count,
         };
       }),
+    }).then(res => {
+      if (!res.ok) {
+        alert('장바구니 추가를 실패하였습니다.');
+      } else {
+        alert('장바구니에 추가가 되었습니다.');
+      }
     });
   };
 

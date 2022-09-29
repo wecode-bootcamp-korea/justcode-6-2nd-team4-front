@@ -10,6 +10,9 @@ export const optionsSlice = createSlice({
     setOptions: (state, action) => {
       state.options = action.payload;
     },
+    initOptionsSelected: (state, _) => {
+      state.optionsSelected = [];
+    },
     addOptionsSelected: (state, action) => {
       state.optionsSelected = [...state.optionsSelected, action.payload];
     },
@@ -29,6 +32,7 @@ export const optionsSlice = createSlice({
 
 export const {
   setOptions,
+  initOptionsSelected,
   addOptionsSelected,
   removeOptionsSelected,
   increaseOptionsSelectedCount,
