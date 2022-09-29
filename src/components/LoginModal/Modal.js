@@ -49,6 +49,7 @@ function LoginModal({ open, onClose }) {
         if (data.token) {
           localStorage.setItem('token', data.token);
           localStorage.setItem('userName', data.name);
+          localStorage.setItem('id', data.id);
 
           goMain();
         } else {

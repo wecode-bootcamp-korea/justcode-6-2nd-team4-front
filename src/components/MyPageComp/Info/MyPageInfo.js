@@ -8,7 +8,6 @@ function MyPageinfo() {
     fetch('http://localhost:10010/mypage/', {
       headers: {
         Authorization: localStorage.getItem('token'),
-
         'Content-Type': 'application/json',
       },
     })
