@@ -22,14 +22,12 @@ function Signup() {
   // const [exist, setExist] = useState(false);
   // const [signedUp, setSignedUp] = useState('');
 
-  // backend에 post될 값
   const [pwd, setPwd] = useState('');
   const [email, setEmail] = useState('');
   const [samePwd, setSamePwd] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
 
-  // 에러 메시지 조건, 버튼 활성&비활성
   const [validPwd, setValidPwd] = useState(false);
   const [validSamePwd, setValidSamePwd] = useState(false);
   const [validEmail, setValidEmail] = useState(false);

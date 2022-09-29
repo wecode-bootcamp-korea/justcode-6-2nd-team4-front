@@ -5,7 +5,7 @@ function Button(props) {
   const titleText = props.title;
   const clickEvent = props.event;
   const inputValue = props.inputValue;
-  const goMain = props.navigateMain;
+  const navigate = props.navigateMain;
   const [onHover, setOnHover] = useState(false);
 
   const enterMouse = () => {
@@ -23,7 +23,7 @@ function Button(props) {
       }
       onClick={clickEvent}
       disabled={inputValue}
-      onMouseUp={goMain}
+      onMouseUp={navigate}
       onMouseEnter={enterMouse}
       onMouseLeave={leaveMouse}
     >
