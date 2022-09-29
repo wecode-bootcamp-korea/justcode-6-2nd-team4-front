@@ -6,11 +6,17 @@ function MyPageinfo() {
 
   useEffect(() => {
 <<<<<<< HEAD
+    fetch('http://localhost:10010/mypage/', {
+      headers: {
+        Authorization: localStorage.getItem('token'),
+=======
+<<<<<<< HEAD
     fetch(`http://localhost:10010/mypage/${localStorage.getItem('id')}`, {
 =======
     fetch('http://localhost:10010/mypage/1', {
 >>>>>>> main
       headers: {
+>>>>>>> 7e6ebfdcf17ebaf0c2f9d46e804f8c24f9652a45
         'Content-Type': 'application/json',
       },
     })

@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 function Review() {
+  const rateRef = useRef('');
   const reviewRef = useRef('');
   const params = useParams();
   const id = params.id;
@@ -12,6 +13,8 @@ function Review() {
   const goMypage = () => {
     navigate('/mypage');
   };
+
+  const [rate, setRate] = useState('');
 
   const reviewHandler = () => {
     fetch(`http://localhost:10010/productreviews/${id}`, {
@@ -22,7 +25,7 @@ function Review() {
       },
       body: JSON.stringify({
         review_content: reviewRef.current.value,
-        product_id: id,
+        rate: rateRef.current.value,
       }),
     });
     goMypage();
@@ -32,7 +35,22 @@ function Review() {
     <div className={styles.review_border}>
       <div className={styles.review_header}>
         <h1 className={styles.review_header_title}>상품 후기작성</h1>
+
+        <div className={styles.review_rate}>
+          <p>상품에 대한 평점을 남겨주세요</p>
+          <select ref={rateRef}>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
         <div className={styles.review_header_text}>
+          <p>상품에 대한 평가를 20자 이상 작성해 주새요.</p>
+
           <li>
             작성하신 후기는 다른 회원들에게 공개됩니다. 후기 내용은 20자 이상
             작성합니다.
@@ -49,10 +67,9 @@ function Review() {
         </div>
       </div>
       <div className={styles.review_form}>
-        <p>상품에 대한 평가를 20자 이상 작성해 주새요.</p>
         <input
           ref={reviewRef}
-          // onChange={e => set(e.target.value)}
+          onChange={e => setRate(e.target.value)}
           placeholder="내용"
         ></input>
       </div>

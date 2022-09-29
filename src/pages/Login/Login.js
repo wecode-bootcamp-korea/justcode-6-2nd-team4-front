@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styles from './Login.module.scss';
 import logo from '../../../src/assets/images/logo.png';
 import Modal from '../../../src/components/LoginModal/Modal.js';
-import { KAKAO_AUTH_URL } from '../../components/Kakao/Kakao';
+import { KAKAO_AUTH_URL } from '../../components/SignupComp/Kakao/Kakao';
 
 function Login() {
   const [isOpen, setIsOpen] = useState(false);
