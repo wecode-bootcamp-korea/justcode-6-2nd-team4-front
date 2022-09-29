@@ -32,6 +32,7 @@
   .signup_input_border {
     width: 100%;
     .signup_input_wrapper {
+      width: 100%;
       display: flex;
       margin-bottom: 40px;
       justify-content: center;
@@ -72,6 +73,22 @@
         left: 23%;
       }
     }
+    div:nth-child(6) {
+      margin-bottom: 5px;
+    }
+    .post_wrapper {
+      button {
+        border: none;
+        color: white;
+        background-color: #31b1e7;
+        height: 35px;
+        width: 100px;
+        margin-left: 68%;
+        font-size: 20px;
+        margin-top: 5px;
+        margin-bottom: 40px;
+      }
+    }
   }
 
   .signup_btn_wrapper {
@@ -89,14 +106,5 @@
       margin-top: 40px;
       margin-bottom: 30px;
     }
-    // .signup_btn {
-    //   margin-top: 30px;
-    //   width: 420px;
-    //   height: 60px;
-    //   border: none;
-    //   color: white;
-    //   background-color: lightgray;
-    //   font-size: 20px;
-    // }
   }
 }

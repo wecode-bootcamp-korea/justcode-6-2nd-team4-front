@@ -1,0 +1,20 @@
+{
+  "getReviews": [
+    {
+      "id": 1,
+      "rate": "3.5",
+      "review_content": "너무 좋아요1",
+      "date": "2022-10-01",
+      "name": "kevin1",
+      "user_image": "https://dummyimage.com/600x600/f3ff4a/000000&text="
+    },
+    {
+      "id": 2,
+      "rate": "3.5",
+      "review_content": "너무 좋아요2",
+      "date": "2022-10-01",
+      "name": "kevin2",
+      "user_image": "https://dummyimage.com/600x600/f3ff4a/000000&text="
+    }
+  ]
+}

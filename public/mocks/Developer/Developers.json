@@ -1,0 +1,68 @@
+{
+  "developers": {
+    "front": [
+      {
+        "product_id": 3,
+        "product_name": "front-end",
+        "image": "/mocks/Developer/yuhyeon.png",
+        "sale_rate": null,
+        "price": "김유현",
+        "shop": "React.js, Javascript, css",
+        "category": null,
+        "average": 0,
+        "review_count": 0,
+        "delivery_type": 1
+      },
+      {
+        "product_id": 3,
+        "product_name": "front-end",
+        "image": "/mocks/Developer/seungseop.jpg",
+        "sale_rate": null,
+        "price": "안승섭",
+        "shop": "React.js, Javascript, css",
+        "category": null,
+        "average": 0,
+        "review_count": 0,
+        "delivery_type": 1
+      },
+      {
+        "product_id": 3,
+        "product_name": "front-end",
+        "image": "/mocks/Developer/seyoung.png",
+        "sale_rate": null,
+        "price": "정세영",
+        "shop": "React.js, Javascript, css",
+        "category": null,
+        "average": 0,
+        "review_count": 0,
+        "delivery_type": 1
+      }
+    ],
+    "back": [
+      {
+        "product_id": 3,
+        "product_name": "back-end",
+        "image": "/mocks/Developer/jieun.png",
+        "sale_rate": null,
+        "price": "박지은",
+        "shop": "Node.js, express, mySQL",
+        "category": null,
+        "average": 0,
+        "review_count": 0,
+        "delivery_type": 1
+      },
+      {
+        "product_id": 3,
+        "product_name": "back-end",
+        "image": "/mocks/Developer/heayeon.png",
+        "sale_rate": null,
+        "price": "이해연",
+        "shop": "Node.js, express, mySQL",
+        "category": null,
+        "average": 0,
+        "review_count": 0,
+        "delivery_type": 1
+      }
+    ]
+  }
+}
