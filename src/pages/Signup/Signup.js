@@ -39,8 +39,6 @@ function Signup() {
 
   const [error, setError] = useState(null);
 
-  const [error, setError] = useState(null);
-
   // error 메시지 값 설정
   // const [exist, setExist] = useState(false);
   // const [signedUp, setSignedUp] = useState('');
