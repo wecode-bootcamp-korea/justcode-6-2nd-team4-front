@@ -8,10 +8,15 @@ function DropDown({ title }) {
   const goMyPage = () => {
     navigate('/mypage');
   };
+  const goMain = () => {
+    navigate('/');
+  };
+
   useEffect(() => {});
 
   const handleLogout = () => {
     localStorage.clear();
+    goMain();
     window.location.reload();
   };
 

@@ -6,11 +6,17 @@ function Liked() {
 
   useEffect(() => {
 <<<<<<< HEAD
+    fetch('http://localhost:10010/mypage/liked/', {
+      headers: {
+        Authorization: localStorage.getItem('token'),
+=======
+<<<<<<< HEAD
     fetch(`http://localhost:10010/mypage/liked/${localStorage.getItem('id')}`, {
 =======
     fetch('http://localhost:10010/mypage/liked/1', {
 >>>>>>> main
       headers: {
+>>>>>>> 7e6ebfdcf17ebaf0c2f9d46e804f8c24f9652a45
         'Content-Type': 'application/json',
       },
     })
@@ -22,6 +28,9 @@ function Liked() {
   }, []);
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 7e6ebfdcf17ebaf0c2f9d46e804f8c24f9652a45
   console.log(result);
 
   return (
@@ -29,6 +38,8 @@ function Liked() {
       <div className={styles.mypage_liked_wrapper}>
         {result.map(result => (
           <div className={styles.liked_content_wrapper}>
+<<<<<<< HEAD
+=======
 =======
   return (
     <div>
@@ -36,6 +47,7 @@ function Liked() {
         {result.map((result, i) => {
           <div key={i} className={styles.liked_content_wrapper}>
 >>>>>>> main
+>>>>>>> 7e6ebfdcf17ebaf0c2f9d46e804f8c24f9652a45
             <div className={styles.liked_content}>
               <div className={styles.liked_content_img}>
                 <img src={result.thumbnail_image} />
@@ -49,9 +61,14 @@ function Liked() {
           </div>
         ))}
 =======
+<<<<<<< HEAD
+          </div>
+        ))}
+=======
           </div>;
         })}
 >>>>>>> main
+>>>>>>> 7e6ebfdcf17ebaf0c2f9d46e804f8c24f9652a45
       </div>
     </div>
   );
