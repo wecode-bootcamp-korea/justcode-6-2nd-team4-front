@@ -3,17 +3,31 @@ import styles from './ItemCard.module.scss';
 import star from '../../assets/images/star.png';
 import furniture from '../../assets/images/furniture.png';
 
-function ItemCard({ data }) {
+function ItemCard({ data, id, goToDetail }) {
   return (
     <div className={styles.card_wrapper}>
       <div className={styles.card_img_box}>
-        <img src={data.image}></img>
+        <img
+          src={data.image}
+          id={id}
+          onClick={e => {
+            goToDetail(e);
+          }}
+        ></img>
       </div>
       <div className={styles.card_store_type}>
         <div className={styles.card_store_name}>{data.shop}</div>
         <div className={styles.card_product_type}>{data.category}</div>
       </div>
-      <div className={styles.card_product_name}>{data.product_name}</div>
+      <div
+        className={styles.card_product_name}
+        id={id}
+        onClick={e => {
+          goToDetail(e);
+        }}
+      >
+        {data.product_name}
+      </div>
       <div className={styles.card_product_price}>{data.price}</div>
       <div className={styles.review_delivery_container}>
         {data.average !== 0 ? (

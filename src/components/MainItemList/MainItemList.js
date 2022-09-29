@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ItemCard from '../ItemCard/ItemCard';
 import styles from './MainItemList.module.scss';
 import prev from '../../assets/images/prev.png';
@@ -9,6 +10,7 @@ function MainItemList() {
   const [page, setPage] = useState(1);
   const [page2, setPage2] = useState(1);
   const [newData, setNewData] = useState();
+  const navigate = useNavigate();
 
   const [style, setStyle] = useState({
     transform: `translateX(0%)`,
@@ -22,7 +24,7 @@ function MainItemList() {
   const handleNext = () => {
     setPage(2);
     setStyle({
-      transform: `translateX(-74.5%)`,
+      transform: `translateX(-75%)`,
       transition: `all 0.4s ease-in-out`,
     });
   };
@@ -37,7 +39,7 @@ function MainItemList() {
   const handleNext2 = () => {
     setPage2(2);
     setStyle2({
-      transform: `translateX(-74.5%)`,
+      transform: `translateX(-75%)`,
       transition: `all 0.4s ease-in-out`,
     });
   };
@@ -80,6 +82,27 @@ function MainItemList() {
     });
   };
 
+  const newFirstRowGoMain = e => {
+    if (newFirstRow) {
+      navigate(`/product/${newFirstRow[e.target.id].product_id}`);
+    }
+  };
+  const newSecondRowGoMain = e => {
+    if (newSecondRow) {
+      navigate(`/product/${newSecondRow[e.target.id].product_id}`);
+    }
+  };
+  const popularFirstRowGoMain = e => {
+    if (popularFirstRow) {
+      navigate(`/product/${popularFirstRow[e.target.id].product_id}`);
+    }
+  };
+  const popularSecondRowGoMain = e => {
+    if (popularSecondRow) {
+      navigate(`/product/${popularSecondRow[e.target.id].product_id}`);
+    }
+  };
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -101,7 +124,11 @@ function MainItemList() {
               newFirstRow.map((data, i) => {
                 return (
                   <div key={i}>
-                    <ItemCard data={data} />
+                    <ItemCard
+                      data={data}
+                      id={i}
+                      goToDetail={newFirstRowGoMain}
+                    />
                   </div>
                 );
               })}
@@ -113,7 +140,11 @@ function MainItemList() {
               newSecondRow.map((data, i) => {
                 return (
                   <div key={i}>
-                    <ItemCard data={data} />
+                    <ItemCard
+                      data={data}
+                      id={i}
+                      goToDetail={newSecondRowGoMain}
+                    />
                   </div>
                 );
               })}
@@ -139,7 +170,11 @@ function MainItemList() {
               popularFirstRow.map((data, i) => {
                 return (
                   <div key={i}>
-                    <ItemCard data={data} />
+                    <ItemCard
+                      data={data}
+                      id={i}
+                      goToDetail={popularFirstRowGoMain}
+                    />
                   </div>
                 );
               })}
@@ -151,7 +186,11 @@ function MainItemList() {
               popularSecondRow.map((data, i) => {
                 return (
                   <div key={i}>
-                    <ItemCard data={data} />
+                    <ItemCard
+                      data={data}
+                      id={i}
+                      goToDetail={popularSecondRowGoMain}
+                    />
                   </div>
                 );
               })}

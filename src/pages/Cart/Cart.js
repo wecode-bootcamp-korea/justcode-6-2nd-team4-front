@@ -10,14 +10,18 @@ function Cart() {
 
   //user 장바구니 데이터 불러오기
   useEffect(() => {
-    fetch('http://localhost:10010/cart/1', {
+    fetch('http://localhost:10010/cart', {
       method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
     })
       .then(res => res.json())
       .then(data => {
         setCartData(data.cart);
       });
   }, []);
+  console.log(cartData);
 
   //장바구니 수량 및 가격 변경
   const increaseProductPriceAndAmount = e => {
@@ -46,17 +50,17 @@ function Cart() {
   function patchAmountChange(e) {
     try {
       axios.patch(
-        'http://localhost:10010/cart/1',
+        'http://localhost:10010/cart',
         {
           cart_id: cartData[e.target.id].cart_id,
           quantity: cartData[e.target.id].quantity,
           price: cartData[e.target.id].price,
+        },
+        {
+          headers: {
+            Authorization: localStorage.getItem('token'),
+          },
         }
-        // {
-        //   headers: {
-        //     Authorization: localStorage.getItem('accessToken'),
-        //   },
-        // }
       );
     } catch (err) {
       if (err.response) {
@@ -77,10 +81,10 @@ function Cart() {
   };
 
   function deleteCartListData(e) {
-    fetch('http://localhost:10010/cart/1', {
+    fetch('http://localhost:10010/cart', {
       method: 'DELETE',
       headers: {
-        // Authorization: localStorage.getItem('accessToken'),
+        Authorization: localStorage.getItem('token'),
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
@@ -94,11 +98,11 @@ function Cart() {
 
   //장바구니 결제
   function payForSales() {
-    fetch('http://localhost:10010/payment/1', {
+    fetch('http://localhost:10010/payment', {
       method: 'POST',
-      // headers: {
-      //   Authorization: localStorage.getItem('accessToken'),
-      // },
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
     })
       .then(res => res.json())
       .then(data => setMessage(data.message))
@@ -109,29 +113,57 @@ function Cart() {
     }
   }
 
+  //장바구니 reset
+  const resetCart = () => {
+    fetch('http://localhost:10010/cart', {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setCartData(data.cart);
+      });
+    if (message === '장바구니가 비었습니다.') {
+      alert('장바구니가 비었습니다.');
+    }
+  };
+
   return (
     <div className={styles.cart_wrapper}>
       <div className={styles.cart_title}>장바구니</div>
       <div className={styles.cart_list_payment_wrapper}>
-        <div className={styles.cart_list_wrapper}>
-          {cartData.map((cartData, i) => {
-            return (
-              <CartList
-                key={i}
-                cartData={cartData}
-                id={i}
-                increaseProductPriceAndAmount={increaseProductPriceAndAmount}
-                decreaseProductPriceAndAmount={decreaseProductPriceAndAmount}
-                deleteCartList={deleteCartList}
-                patchAmountChange={patchAmountChange}
-                deleteCartListData={deleteCartListData}
-                payForSales={payForSales}
-              />
-            );
-          })}
+        <div className={styles.cart_list_container}>
+          <div className={styles.cart_list_wrapper}>
+            {cartData &&
+              cartData.map((cartData, i) => {
+                return (
+                  <CartList
+                    key={i}
+                    cartData={cartData}
+                    id={i}
+                    increaseProductPriceAndAmount={
+                      increaseProductPriceAndAmount
+                    }
+                    decreaseProductPriceAndAmount={
+                      decreaseProductPriceAndAmount
+                    }
+                    deleteCartList={deleteCartList}
+                    patchAmountChange={patchAmountChange}
+                    deleteCartListData={deleteCartListData}
+                    payForSales={payForSales}
+                  />
+                );
+              })}
+          </div>
         </div>
 
-        <CartPayment cartData={cartData} payForSales={payForSales} />
+        <CartPayment
+          cartData={cartData}
+          payForSales={payForSales}
+          resetCart={resetCart}
+        />
       </div>
     </div>
   );

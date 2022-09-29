@@ -14,10 +14,27 @@
     width: 80%;
     margin: auto;
     margin-top: 50px;
-    .cart_list_wrapper {
+    .cart_list_container {
       width: 60%;
-      border: 1px solid rgb(231, 231, 231);
-      border-radius: 5px;
+      .checked_all_container {
+        background-color: rgb(231, 231, 231);
+        padding: 5px 0px 5px 5px;
+        margin: 1px 0px 10px 0px;
+        border-radius: 5px;
+        input {
+          width: 20px;
+          height: 20px;
+        }
+        span {
+          font-size: 20px;
+        }
+      }
+      .cart_list_wrapper {
+        width: 100%;
+        border: 1px solid rgb(231, 231, 231);
+
+        border-radius: 5px;
+      }
     }
   }
 }

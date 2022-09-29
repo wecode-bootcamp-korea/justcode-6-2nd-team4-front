@@ -34,7 +34,6 @@ function Router() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/developers" element={<Developers />} />
         <Route path="/post" element={<DaumPost />} />
-
         <Route
           path="/oauth/callback/kakao"
           element={<KakaoRedirectHandler />}
