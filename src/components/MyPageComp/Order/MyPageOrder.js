@@ -22,8 +22,10 @@ function MyPageOrder() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:10010/mypage/order/${localStorage.getItem('id')}`, {
+    fetch('http://localhost:10010/mypage/order/', {
       headers: {
+        Authorization: localStorage.getItem('token'),
+
         'Content-Type': 'application/json',
       },
     })
