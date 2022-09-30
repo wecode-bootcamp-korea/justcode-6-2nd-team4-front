@@ -1,5 +1,4 @@
 import DropDownMenu from './DropDownMenu';
-import WorkMenu from './WorkMenu';
 import styles from './NavigationBar.module.scss';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';

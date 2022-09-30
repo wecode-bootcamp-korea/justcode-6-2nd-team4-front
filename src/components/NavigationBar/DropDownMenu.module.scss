@@ -9,6 +9,29 @@
     // padding-left: 50px;
     opacity: 1;
     transition: 1s;
+    .first_box {
+      margin: 15px 15px 15px 60px;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+      div {
+        text-align: center;
+        text-decoration: none;
+        color: black;
+      }
+      &:hover {
+        img {
+          width: 60px;
+          height: 60px;
+        }
+        div {
+          text-align: center;
+          text-decoration: none;
+          color: rgb(3, 179, 238);
+        }
+      }
+    }
     .box {
       margin: 15px;
       img {
