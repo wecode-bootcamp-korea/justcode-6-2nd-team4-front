@@ -79,7 +79,7 @@ function CartList({
             <div className={styles.plus}> + </div>
             <div className={styles.delivery_fee}>
               {cartData.delivery_fee !== 0
-                ? `배송비 ${cartData.delivery_fee.toLocaleString()}원`
+                ? `배송비 ${Number(cartData.delivery_fee).toLocaleString()}원`
                 : '배송비무료'}
             </div>
             <div className={styles.total_price}>
