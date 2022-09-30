@@ -49,19 +49,19 @@ function CartList({
         <div className={styles.option}>{cartData.options}</div>
         <div className={styles.amount_price_box}>
           <div className={styles.amount_box}>
-            <div
+            <button
               className={styles.amount_minus}
               id={id}
               onClick={e => {
                 decreaseProductPriceAndAmount(e);
                 patchAmountChange(e);
               }}
-              disabled={!activeMinusBtn}
+              disabled={!activeMinusBtn()}
             >
               -
-            </div>
+            </button>
             <div className={styles.amount_status}>{cartData.quantity}</div>
-            <div
+            <button
               className={styles.amount_plus}
               id={id}
               onClick={e => {
@@ -70,7 +70,7 @@ function CartList({
               }}
             >
               +
-            </div>
+            </button>
           </div>
           <div className={styles.price_container}>
             <div className={styles.price}>
