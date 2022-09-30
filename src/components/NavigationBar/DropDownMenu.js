@@ -17,7 +17,7 @@ function DropDownMenu({ handleMouseEnter, handleMouseLeave, handleFont }) {
     >
       <div className={styles.container}>
         <Link to="/themeCategory/1?offset=0">
-          <div className={styles.box} onClick={handleFont}>
+          <div className={styles.first_box} onClick={handleFont}>
             <img src={furniture} alt="가구 카테고리 이미지"></img>
             <div>가구</div>
           </div>
