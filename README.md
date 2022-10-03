@@ -24,6 +24,9 @@ BE : 이해연, 박지은
 - 협업 : Github, Slack, Notion, zep, zoom
 
 
+## DB Modeling
+<img src="<img width="825" alt="image" src="https://user-images.githubusercontent.com/103613612/193611644-48f551db-dd09-4ee6-8573-f637e0419459.png">
+" width="400" height="400" />
 ## 기능 분담
 
 #### 김유현
