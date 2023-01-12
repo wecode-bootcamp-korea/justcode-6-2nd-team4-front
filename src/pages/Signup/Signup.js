@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import DaumPost from '../../components/SignupComp/Adress/Adress';
 import styles from './Signup.module.scss';
-// input 형식 체크 정규식
+
 const NAME_REGEX = /^[a-zA-Z\s]{3,30}$/;
 const PHONE_REGEX = /^[0-9]{10,30}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;

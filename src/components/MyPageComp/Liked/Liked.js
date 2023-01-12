@@ -19,7 +19,6 @@ function Liked() {
     })
       .then(res => res.json())
       .then(data => setResult(data.LikeList))
-
       .catch(err => {
         console.error(err);
       });

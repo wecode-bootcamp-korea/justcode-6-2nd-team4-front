@@ -94,8 +94,6 @@ function LoginModal(props) {
                   ref={emailRef}
                   autoComplete="off"
                   onChange={e => setEmail(e.target.value)}
-                  // aria-invalid={validEmail ? 'false' : 'true'}
-                  // aria-describedby="emailNote"
                 />
 
                 <p
