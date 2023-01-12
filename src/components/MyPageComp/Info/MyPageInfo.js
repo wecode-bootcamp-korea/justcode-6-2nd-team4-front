@@ -47,11 +47,6 @@ function MyPageinfo() {
           <div className={styles.myinfo_content_img}>
             <div>
               <div>이름</div>
-              {/* <ul>
-                {result.map(result => (
-                  <span key={0}>{result.info}</span>
-                ))}
-              </ul> */}
             </div>
             <div>{result[0]}</div>
           </div>

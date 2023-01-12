@@ -4,7 +4,6 @@ import styles from './MyPageOrder.module.scss';
 
 function MyPageOrder() {
   const [result, setResult] = useState([]);
-  const [postResult, setPostResult] = useState([]);
 
   const navigate = useNavigate();
   const goReview = id => {
@@ -13,12 +12,6 @@ function MyPageOrder() {
   const goItem = e => {
     navigate(`/product/${result[e.target.id].product_id}`);
   };
-
-  // const postProductInfo = e => {
-  //   const value = e.target.id;
-  //   setPostResult(e.target.id);
-  //   console.log(value);
-  // };
 
   const postProductInfo = e => {
     goReview(e.target.id);
@@ -55,6 +48,7 @@ function MyPageOrder() {
               <div className={styles.order_li_product_wrapper}>
                 <div className={styles.product_info_img}>
                   <img
+                    alt={'상품이미지'}
                     className={styles.product_info_img}
                     src={result.thumbnail_image}
                     id={i}

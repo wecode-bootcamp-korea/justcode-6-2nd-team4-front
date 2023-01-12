@@ -10,6 +10,7 @@ function Login() {
 
   const modalHandler = e => {
     e.preventDefault();
+    setIsOpen(true);
   };
 
   return (
@@ -32,7 +33,7 @@ function Login() {
             <span> 카카오 계정으로 계속하기</span>
           </a>
 
-          <button onMouseDown={() => setIsOpen(true)} onClick={modalHandler}>
+          <button onClick={modalHandler}>
             <img alt="로고" src={logo} />
             <span>사조의 공방으로 계속하기</span>
           </button>

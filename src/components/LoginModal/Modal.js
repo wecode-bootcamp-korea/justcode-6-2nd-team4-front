@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const EMAIL_REGEX = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{1,24}$/;
 
-function LoginModal({ open, onClose }) {
+function LoginModal(props) {
   const pwdRef = useRef('');
   const emailRef = useRef('');
   const invalidRef = useRef('');
@@ -63,12 +63,12 @@ function LoginModal({ open, onClose }) {
 
   return (
     <>
-      {!open ? null : (
+      {!props.open ? null : (
         <>
           <div className={styles.overlay} />
 
           <div className={styles.container}>
-            <div className={styles.close_btn} onMouseDown={onClose}>
+            <div className={styles.close_btn} onMouseDown={props.onClose}>
               X
             </div>
             <div className={styles.modal_title}>
@@ -94,8 +94,8 @@ function LoginModal({ open, onClose }) {
                   ref={emailRef}
                   autoComplete="off"
                   onChange={e => setEmail(e.target.value)}
-                  aria-invalid={validEmail ? 'false' : 'true'}
-                  aria-describedby="emailNote"
+                  // aria-invalid={validEmail ? 'false' : 'true'}
+                  // aria-describedby="emailNote"
                 />
 
                 <p
@@ -117,8 +117,6 @@ function LoginModal({ open, onClose }) {
                   type="password"
                   ref={pwdRef}
                   onChange={e => setPwd(e.target.value)}
-                  aria-invalid={validPwd ? 'false' : 'true'}
-                  aria-describedby="pwdNote"
                 />
                 <p
                   id="pwdNote"

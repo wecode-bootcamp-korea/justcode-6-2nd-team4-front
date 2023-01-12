@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import DaumPost from '../../components/SignupComp/Adress/Adress';
 import styles from './Signup.module.scss';
-
+// input 형식 체크 정규식
 const NAME_REGEX = /^[a-zA-Z\s]{3,30}$/;
 const PHONE_REGEX = /^[0-9]{10,30}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
@@ -16,12 +16,9 @@ function Signup() {
 
   const getChildState = e => {
     e.preventDefault();
-
-    const childState = childRef.current.getChild();
-    setAddress(childState);
+    setOpenPostcode(current => !current);
+    setAddress(childRef.current.getChild());
   };
-
-  // console.log(setAddress);
 
   const pwdRef = useRef('');
   const emailRef = useRef('');
@@ -29,39 +26,31 @@ function Signup() {
   const phoneRef = useRef('');
   const samePwdRef = useRef('');
   const addressRef = useRef('');
-  const detailedAddressRef = useState('');
+  const detailedAddressRef = useRef('');
 
   const [openPostcode, setOpenPostcode] = useState(false);
-  const toggle = e => {
-    e.preventDefault();
-    setOpenPostcode(current => !current);
-  };
 
   const [error, setError] = useState(null);
 
-  // error 메시지 값 설정
-  // const [exist, setExist] = useState(false);
-  // const [signedUp, setSignedUp] = useState('');
-
   const [pwd, setPwd] = useState('');
   const [email, setEmail] = useState('');
-  const [samePwd, setSamePwd] = useState('');
+
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [detailedAddress, setdetailedAddress] = useState('');
 
   const [validPwd, setValidPwd] = useState(false);
-  const [validSamePwd, setValidSamePwd] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
   const [validPhone, setValidPhone] = useState(false);
   const [validName, setValidName] = useState(false);
+
+  const [validSamePwd, setValidSamePwd] = useState(false);
+  const [samePwd, setSamePwd] = useState('');
 
   const navigate = useNavigate();
   const goMain = () => {
     navigate('/');
   };
-
-  // const [emailFocus, setEmailFocus] = useState(false);
 
   useEffect(() => {
     setValidPhone(PHONE_REGEX.test(phone));
@@ -80,55 +69,33 @@ function Signup() {
     setValidEmail(EMAIL_REGEX.test(email));
   }, [email]);
 
-  // const postInfoHandler = e => {
-  //   e.preventDefault();
-
-  //   fetch('http://localhost:10010/users/signup', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       email: emailRef.current.value,
-  //       pwd: pwdRef.current.value,
-  //       name: nameRef.current.value,
-  //       phone: phoneRef.current.value,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log(data);
-  //       goMain();
-  //     })
-  //     .catch(err => {
-  //       console.error(err);
-  //     });
-  // };
-
   async function postInfoHandler() {
     setError(null);
     try {
-      const res = await fetch('http://localhost:10010/users/signup', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: emailRef.current.value,
-          pwd: pwdRef.current.value,
-          name: nameRef.current.value,
-          phone: phoneRef.current.value,
-          address: addressRef.current.value,
-          detailed_address: detailedAddressRef.current.value,
-        }),
-      });
-      const data = await res.json();
-
-      goMain();
+      const res = await fetch(
+        'https://react-http-c7892-default-rtdb.firebaseio.com/comments.json',
+        {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: emailRef.current.value,
+            pwd: pwdRef.current.value,
+            name: nameRef.current.value,
+            phone: phoneRef.current.value,
+            address: addressRef.current.value,
+            detailed_address: detailedAddressRef.current.value,
+          }),
+        }
+      );
+      const data = res.json();
+      console.log(data);
     } catch (error) {
       console.error(error);
       setError(error.msessage);
     }
+    goMain();
   }
 
   return (
@@ -147,14 +114,9 @@ function Signup() {
             ref={emailRef}
             autoComplete="off"
             onChange={e => setEmail(e.target.value)}
-            aria-invalid={validEmail ? 'false' : 'true'}
-            aria-describedby="emailNote"
-            // onFocus={() => setEmailFocus(true)}
-            // onBlur={() => setEmailFocus(false)}
           />
 
           <p
-            id="emailNote"
             className={
               email && !validEmail
                 ? `${styles.cond_msg}`
@@ -172,8 +134,6 @@ function Signup() {
             type="password"
             ref={pwdRef}
             onChange={e => setPwd(e.target.value)}
-            aria-invalid={validPwd ? 'false' : 'true'}
-            aria-describedby="pwdNote"
           />
           <p
             id="pwdNote"
@@ -182,6 +142,12 @@ function Signup() {
             }
           >
             비밀번호는 알파벳 대소문자 특수기호 숫자조합입니다.
+          </p>
+          <p
+            id="pwdNote"
+            className={validPwd ? `${styles.cond_msg}` : `${styles.offscreen}`}
+          >
+            사용가능한 비밀번호입니다.
           </p>
         </div>
 
@@ -192,8 +158,6 @@ function Signup() {
             type="password"
             ref={samePwdRef}
             onChange={e => setSamePwd(e.target.value)}
-            aria-invalid={validSamePwd ? 'false' : 'true'}
-            aria-describedby="samePwdNote"
           />
           <p
             id="smaePwdNote"
@@ -204,6 +168,16 @@ function Signup() {
             }
           >
             비밀번호가 일치하지 않습니다.
+          </p>
+          <p
+            id="smaePwdNote"
+            className={
+              samePwd && validSamePwd
+                ? `${styles.cond_msg}`
+                : `${styles.offscreen}`
+            }
+          >
+            비밀번호가 일치합니다.
           </p>
         </div>
 
@@ -246,11 +220,8 @@ function Signup() {
         </div>
 
         <div className={styles.post_wrapper}>
-          <button onClick={toggle} onMouseDown={getChildState}>
-            주소선택
-          </button>
+          <button onClick={getChildState}>주소선택</button>
           {openPostcode && <DaumPost ref={childRef} />}
-          {/* <button onClick={getChildState}>확인</button> */}
         </div>
 
         <div className={styles.signup_input_wrapper}>

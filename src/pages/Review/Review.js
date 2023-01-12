@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import styles from './Review.module.scss';
 import Button from '../../components/Button/Button';
 import { useParams } from 'react-router-dom';
@@ -71,7 +71,7 @@ function Review() {
           ref={reviewRef}
           onChange={e => setRate(e.target.value)}
           placeholder="내용"
-        ></input>
+        />
       </div>
       <div className={styles.review_button}>
         <Button event={reviewHandler} title="제출" />
